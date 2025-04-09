@@ -131,6 +131,9 @@ const Layout = ({ children }: LayoutProps) => {
               <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 hover:text-navy transition-colors">
                 LinkedIn
               </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-navy/70 hover:text-navy transition-colors">
+                Resume
+              </a>
               <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 hover:text-navy transition-colors">
                 Email
               </a>
