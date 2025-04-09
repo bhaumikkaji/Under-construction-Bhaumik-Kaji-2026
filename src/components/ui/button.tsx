@@ -10,15 +10,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext dark:hover:bg-cybertext/10",
+        default: "bg-indigoPurple text-white hover:bg-indigoPurple/90 dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext dark:hover:bg-cybertext/10",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 dark:bg-destructive/20 dark:text-cybertext",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground dark:border-cybertext dark:text-cybertext dark:hover:bg-cybertext/10",
+          "border border-indigoPurple bg-background text-indigoPurple hover:bg-stone/50 hover:text-indigoPurple dark:border-cybertext dark:text-cybertext dark:hover:bg-cybertext/10",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext/50 dark:hover:bg-cybertext/10",
-        ghost: "hover:bg-accent hover:text-accent-foreground dark:text-cybertext dark:hover:bg-cybertext/10",
-        link: "text-primary underline-offset-4 hover:underline dark:text-cybertext",
+          "bg-stone text-indigoPurple hover:bg-stone/80 dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext/50 dark:hover:bg-cybertext/10",
+        ghost: "text-indigoPurple hover:bg-stone/50 hover:text-indigoPurple dark:text-cybertext dark:hover:bg-cybertext/10",
+        link: "text-indigoPurple underline-offset-4 hover:underline dark:text-cybertext",
       },
       size: {
         default: "h-10 px-4 py-2",
