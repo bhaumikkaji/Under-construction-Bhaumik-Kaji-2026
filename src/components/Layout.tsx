@@ -202,11 +202,11 @@ const Layout = ({ children }: LayoutProps) => {
               © {new Date().getFullYear()} Bhaumik Kaji. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
-                LinkedIn
-              </a>
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
                 Resume
+              </a>
+              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
+                LinkedIn
               </a>
               <a 
                 href="#" 
