@@ -104,8 +104,8 @@ export default function Index() {
             >
               <div className="relative overflow-hidden rounded-2xl md:h-full md:aspect-auto aspect-square max-w-md mx-auto mt-8 md:mt-0">
                 <img 
-                  src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" 
-                  alt="Bhaumik Kaji" 
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=2070" 
+                  alt="Product Designer working on laptop" 
                   className="w-full h-full object-cover object-center hover-effect-image"
                 />
                 <div className="absolute inset-0 border-4 border-white/10 rounded-2xl pointer-events-none" />
@@ -190,8 +190,8 @@ export default function Index() {
             <div className="md:w-1/2 aspect-square max-w-sm">
               <div className="relative w-full h-full overflow-hidden rounded-lg">
                 <img 
-                  src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" 
-                  alt="Bhaumik Kaji" 
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=2070" 
+                  alt="Product Designer working on laptop" 
                   className="w-full h-full object-cover hover-effect-image"
                 />
               </div>
