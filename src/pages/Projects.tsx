@@ -166,7 +166,8 @@ export default function Projects() {
       
       {!isProtected && (
         <>
-          <div className="fixed top-8 left-8 z-10">
+          {/* Move the back button from top left to bottom left by changing its positioning */}
+          <div className="fixed bottom-8 left-8 z-10">
             <Link 
               to="/" 
               className="p-3 bg-white/80 backdrop-blur-sm shadow-md rounded-full flex items-center justify-center hover:bg-white transition-colors"
