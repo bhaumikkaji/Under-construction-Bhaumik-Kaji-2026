@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -11,6 +11,19 @@ export default function Index() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  // Function to handle email contact with metadata
+  const handleContactClick = (e: React.MouseEvent, source: string = "footer") => {
+    e.preventDefault();
+    
+    // Creating email with metadata
+    const subject = encodeURIComponent("Contact from Portfolio Website");
+    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${source} section).\n\n`);
+    
+    // Open email client
+    window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
+  };
+  
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-20 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
@@ -70,9 +83,14 @@ export default function Index() {
                     View Projects
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
-                  <Link to="/contact" className="inline-flex items-center px-8 py-4 border-2 border-navy text-navy rounded-md hover:bg-stone/50 transition-colors font-medium">
+                  <a 
+                    href="#" 
+                    onClick={(e) => handleContactClick(e, "hero")}
+                    className="inline-flex items-center px-8 py-4 border-2 border-navy text-navy rounded-md hover:bg-stone/50 transition-colors font-medium dark:border-cybertext dark:text-cybertext"
+                  >
                     Get in Touch
-                  </Link>
+                    <Mail size={18} className="ml-2" />
+                  </a>
                 </div>
               </motion.div>
             </div>
@@ -160,18 +178,22 @@ export default function Index() {
       </section>
       
       {/* Contact CTA */}
-      <section id="contact-section" className="bg-navy text-white py-24">
+      <section id="contact-section" className="bg-navy text-white py-24 dark:bg-darkbg">
         <div className="container mx-auto px-6">
           <AnimatedSection className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-grotesk mb-6">Let's work together</h2>
-            <p className="text-white/80 mb-8 text-lg max-w-xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-grotesk mb-6 dark:text-cybertext">Let's work together</h2>
+            <p className="text-white/80 mb-8 text-lg max-w-xl mx-auto dark:text-cybertext/80">
               Have a project in mind or just want to connect? I'm always open to discussing 
               design challenges and opportunities.
             </p>
-            <Link to="/contact" className="inline-flex items-center px-6 py-3 bg-white text-navy rounded-md hover:bg-white/90 transition-colors">
+            <a 
+              href="#" 
+              onClick={(e) => handleContactClick(e, "footer")}
+              className="inline-flex items-center px-6 py-3 bg-white text-navy rounded-md hover:bg-white/90 transition-colors dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext dark:hover:bg-cybertext/10"
+            >
               Get in Touch
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
+              <Mail size={18} className="ml-2" />
+            </a>
           </AnimatedSection>
         </div>
       </section>

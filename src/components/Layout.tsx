@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import { Mail } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,6 +14,18 @@ const Layout = ({ children }: LayoutProps) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  // Function to handle email contact with metadata
+  const handleContactClick = (e: React.MouseEvent, source: string = "nav") => {
+    e.preventDefault();
+    
+    // Creating email with metadata
+    const subject = encodeURIComponent("Contact from Portfolio Website");
+    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${source} navigation).\n\n`);
+    
+    // Open email client
+    window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -91,7 +104,14 @@ const Layout = ({ children }: LayoutProps) => {
               <NavLink to="/" label="Home" currentPath={location.pathname} />
               <NavLink to="/projects" label="Projects" currentPath={location.pathname} />
               <NavLink to="/about" label="About" currentPath={location.pathname} />
-              <NavLink to="/contact" label="Contact" currentPath={location.pathname} />
+              {/* Contact link replaced with email link */}
+              <a 
+                href="#" 
+                onClick={(e) => handleContactClick(e)} 
+                className="relative font-medium text-sm transition-colors text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80"
+              >
+                Contact
+              </a>
             </nav>
             
             <ThemeToggle />
@@ -134,7 +154,17 @@ const Layout = ({ children }: LayoutProps) => {
               <MobileNavLink to="/" label="Home" setIsOpen={setIsOpen} />
               <MobileNavLink to="/projects" label="Projects" setIsOpen={setIsOpen} />
               <MobileNavLink to="/about" label="About" setIsOpen={setIsOpen} />
-              <MobileNavLink to="/contact" label="Contact" setIsOpen={setIsOpen} />
+              {/* Mobile contact link replaced with email */}
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  handleContactClick(e, "mobile-nav");
+                  setIsOpen(false);
+                }} 
+                className="text-navy dark:text-cybertext font-grotesk font-medium text-2xl"
+              >
+                Contact
+              </a>
             </nav>
           </motion.div>
         )}
