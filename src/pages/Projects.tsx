@@ -46,7 +46,7 @@ const LazyProjectCard = ({ project, index }: { project: typeof projectsData[0], 
               {project.description}
             </p>
             <div className="mt-4 inline-flex items-center text-navy dark:text-cybertext font-medium">
-              Learn More
+              View Project
               <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
