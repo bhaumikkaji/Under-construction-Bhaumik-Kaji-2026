@@ -39,6 +39,36 @@
     --radius: 0.5rem;
   }
 
+  .dark {
+    --background: 222 33% 12%;
+    --foreground: 0 0% 95%;
+
+    --card: 222 33% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 222 33% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 95%;
+    --primary-foreground: 222 33% 12%;
+
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 217 33% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 217 33% 20%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 0 0% 80%;
+  }
+
   * {
     @apply border-border;
   }
@@ -48,7 +78,7 @@
   }
 
   body {
-    @apply bg-offwhite text-charcoal font-sans;
+    @apply bg-offwhite dark:bg-navy text-charcoal dark:text-stone font-sans;
     overflow-x: hidden;
   }
 
@@ -96,6 +126,10 @@
   justify-content: center;
 }
 
+.dark .password-overlay {
+  background-color: rgba(47, 62, 98, 0.98);
+}
+
 .cursor-dot {
   width: 5px;
   height: 5px;
@@ -107,6 +141,10 @@
   transition: transform 0.1s ease;
 }
 
+.dark .cursor-dot {
+  background-color: #F7F7F7;
+}
+
 .cursor-outline {
   width: 30px;
   height: 30px;
@@ -116,6 +154,10 @@
   pointer-events: none;
   z-index: 999;
   transition: transform 0.15s ease;
+}
+
+.dark .cursor-outline {
+  border-color: #F7F7F7;
 }
 
 /* Animate on scroll */
