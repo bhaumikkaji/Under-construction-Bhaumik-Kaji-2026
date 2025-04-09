@@ -1,13 +1,17 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight, Mail } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Skeleton } from "@/components/ui/skeleton";
+import { CaptchaVerification } from "@/components/CaptchaVerification";
 
 export default function Index() {
+  const [isCaptchaOpen, setIsCaptchaOpen] = useState(false);
+  const [pendingEmailAction, setPendingEmailAction] = useState<{source: string}>({source: ""});
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,9 +20,18 @@ export default function Index() {
   const handleContactClick = (e: React.MouseEvent, source: string = "footer") => {
     e.preventDefault();
     
+    // Store the pending action details
+    setPendingEmailAction({source});
+    
+    // Open CAPTCHA verification
+    setIsCaptchaOpen(true);
+  };
+  
+  // Function called after successful CAPTCHA verification
+  const handleCaptchaSuccess = () => {
     // Creating email with metadata
     const subject = encodeURIComponent("Contact from Portfolio Website");
-    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${source} section).\n\n`);
+    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${pendingEmailAction.source} section).\n\n`);
     
     // Open email client
     window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
@@ -197,5 +210,12 @@ export default function Index() {
           </AnimatedSection>
         </div>
       </section>
+      
+      {/* CAPTCHA verification dialog */}
+      <CaptchaVerification 
+        isOpen={isCaptchaOpen}
+        onOpenChange={setIsCaptchaOpen}
+        onSuccess={handleCaptchaSuccess}
+      />
     </div>;
 }

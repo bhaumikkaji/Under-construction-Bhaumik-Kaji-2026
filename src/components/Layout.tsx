@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { Mail } from "lucide-react";
+import { CaptchaVerification } from "./CaptchaVerification";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,14 +15,25 @@ const Layout = ({ children }: LayoutProps) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isCaptchaOpen, setIsCaptchaOpen] = useState(false);
+  const [pendingEmailAction, setPendingEmailAction] = useState<{source: string}>({source: ""});
 
   // Function to handle email contact with metadata
   const handleContactClick = (e: React.MouseEvent, source: string = "nav") => {
     e.preventDefault();
     
+    // Store the pending action details
+    setPendingEmailAction({source});
+    
+    // Open CAPTCHA verification
+    setIsCaptchaOpen(true);
+  };
+  
+  // Function called after successful CAPTCHA verification
+  const handleCaptchaSuccess = () => {
     // Creating email with metadata
     const subject = encodeURIComponent("Contact from Portfolio Website");
-    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${source} navigation).\n\n`);
+    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${pendingEmailAction.source} navigation).\n\n`);
     
     // Open email client
     window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
@@ -196,13 +208,24 @@ const Layout = ({ children }: LayoutProps) => {
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
                 Resume
               </a>
-              <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
+              <a 
+                href="#" 
+                onClick={(e) => handleContactClick(e, "footer")} 
+                className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors"
+              >
                 Email
               </a>
             </div>
           </div>
         </div>
       </footer>
+      
+      {/* CAPTCHA verification dialog */}
+      <CaptchaVerification 
+        isOpen={isCaptchaOpen}
+        onOpenChange={setIsCaptchaOpen}
+        onSuccess={handleCaptchaSuccess}
+      />
     </div>
   );
 };

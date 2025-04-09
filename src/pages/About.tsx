@@ -1,13 +1,34 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight } from "lucide-react";
+import { CaptchaVerification } from "@/components/CaptchaVerification";
 
 export default function About() {
+  const [isCaptchaOpen, setIsCaptchaOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Function to handle email contact with metadata
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Open CAPTCHA verification
+    setIsCaptchaOpen(true);
+  };
+  
+  // Function called after successful CAPTCHA verification
+  const handleCaptchaSuccess = () => {
+    // Creating email with metadata
+    const subject = encodeURIComponent("Contact from Portfolio Website");
+    const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (About page).\n\n`);
+    
+    // Open email client
+    window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <div className="min-h-screen bg-offwhite dark:bg-darkbg">
@@ -105,17 +126,25 @@ export default function About() {
             </div>
             
             <div className="mt-12">
-              <Link 
-                to="/contact" 
+              <a 
+                href="#" 
+                onClick={handleContactClick}
                 className="inline-flex items-center px-6 py-3 bg-navy dark:bg-cybertext text-white dark:text-darkbg rounded-md hover:bg-navy/90 dark:hover:bg-cybertext/90 transition-colors"
               >
                 Get in Touch
                 <ArrowRight size={18} className="ml-2" />
-              </Link>
+              </a>
             </div>
           </AnimatedSection>
         </div>
       </section>
+      
+      {/* CAPTCHA verification dialog */}
+      <CaptchaVerification 
+        isOpen={isCaptchaOpen}
+        onOpenChange={setIsCaptchaOpen}
+        onSuccess={handleCaptchaSuccess}
+      />
     </div>
   );
 }
