@@ -1,8 +1,8 @@
+
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
-import { ArrowUp } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
