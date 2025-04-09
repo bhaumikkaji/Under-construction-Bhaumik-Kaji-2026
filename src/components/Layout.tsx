@@ -121,7 +121,7 @@ const Layout = ({
             
             <ThemeToggle />
             
-            <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" className="md:hidden flex flex-col space-y-1.5 z-50 ml-4 text-navy dark:text-cybertext">
+            <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" className="md:hidden flex flex-col space-y-1.5 z-50 ml-4">
               <motion.span className="w-6 h-0.5 bg-navy dark:bg-cybertext block" animate={isOpen ? {
               rotate: 45,
               y: 6
