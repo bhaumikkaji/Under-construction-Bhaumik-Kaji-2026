@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -72,7 +73,7 @@ export default function Index() {
           duration: 0.5,
           delay: 0.4
         }}>
-            <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">for AI</p>
+            <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.</p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/projects" className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors">
