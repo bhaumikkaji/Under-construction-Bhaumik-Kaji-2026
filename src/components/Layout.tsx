@@ -41,6 +41,12 @@ const Layout = ({ children }: LayoutProps) => {
     setIsOpen(false);
   }, [location]);
 
+  const handleNavigation = (path: string) => {
+    if (location.pathname !== path) {
+      navigate(path);
+    }
+  };
+
   const scrollToSection = (id: string) => {
     if (location.pathname !== '/') {
       navigate('/', { state: { scrollTo: id } });
@@ -84,18 +90,8 @@ const Layout = ({ children }: LayoutProps) => {
             <nav className="hidden md:flex space-x-8 mr-4">
               <NavLink to="/" label="Home" currentPath={location.pathname} />
               <NavLink to="/projects" label="Projects" currentPath={location.pathname} />
-              <button 
-                onClick={() => scrollToSection('about-section')} 
-                className="relative font-medium text-sm transition-colors text-navy/70 hover:text-navy dark:text-cybertext dark:hover:text-cybertext"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact-section')} 
-                className="relative font-medium text-sm transition-colors text-navy/70 hover:text-navy dark:text-cybertext dark:hover:text-cybertext"
-              >
-                Contact
-              </button>
+              <NavLink to="/about" label="About" currentPath={location.pathname} />
+              <NavLink to="/contact" label="Contact" currentPath={location.pathname} />
             </nav>
             
             <ThemeToggle />
@@ -137,18 +133,8 @@ const Layout = ({ children }: LayoutProps) => {
             <nav className="flex flex-col items-center space-y-8 text-xl">
               <MobileNavLink to="/" label="Home" setIsOpen={setIsOpen} />
               <MobileNavLink to="/projects" label="Projects" setIsOpen={setIsOpen} />
-              <button 
-                onClick={() => scrollToSection('about-section')} 
-                className="text-navy dark:text-cybertext font-grotesk font-medium text-2xl"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact-section')} 
-                className="text-navy dark:text-cybertext font-grotesk font-medium text-2xl"
-              >
-                Contact
-              </button>
+              <MobileNavLink to="/about" label="About" setIsOpen={setIsOpen} />
+              <MobileNavLink to="/contact" label="Contact" setIsOpen={setIsOpen} />
             </nav>
           </motion.div>
         )}
