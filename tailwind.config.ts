@@ -75,11 +75,10 @@ export default {
 				stone: "#EAE7E1",
 				charcoal: "#333333",
 				offwhite: "#F7F7F7",
-				// Dark mode colors
+				// Dark mode colors - standardized
 				darkbg: "#1E1E1E", 
-				cybertext: "#52BCA2", // Updated to the requested teal color
-				cyberborder: "#2C5C5A", // Darker teal for borders
-				cybersecondary: "#1E1E1E", // Same as background for consistency
+				cybertext: "#52BCA2", 
+				cyberborder: "#2C5C5A", 
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

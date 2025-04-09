@@ -160,13 +160,13 @@ const Layout = ({ children }: LayoutProps) => {
               © {new Date().getFullYear()} Bhaumik Kaji. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
+              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
                 LinkedIn
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
                 Resume
               </a>
-              <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
+              <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
                 Email
               </a>
             </div>
@@ -184,7 +184,7 @@ const NavLink = ({ to, label, currentPath }: { to: string; label: string; curren
     <Link 
       to={to}
       className={`relative font-medium text-sm transition-colors ${
-        isActive ? 'text-navy dark:text-cybertext' : 'text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext'
+        isActive ? 'text-navy dark:text-cybertext' : 'text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80'
       }`}
     >
       {label}

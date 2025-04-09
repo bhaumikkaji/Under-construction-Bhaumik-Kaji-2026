@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
 
@@ -180,4 +181,46 @@
 
 .hover-effect-image:hover {
   transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+/* Dark mode overrides for consistent styling */
+.dark {
+  background-color: #1E1E1E;
+}
+
+.dark * {
+  --tw-bg-opacity: 1;
+  color: #52BCA2;
+}
+
+.dark section {
+  background-color: #1E1E1E !important;
+}
+
+.dark .bg-stone, 
+.dark .bg-navy, 
+.dark .bg-offwhite {
+  background-color: #1E1E1E !important;
+}
+
+.dark .text-white,
+.dark .text-navy,
+.dark .text-navy\/70,
+.dark .text-navy\/80 {
+  color: #52BCA2 !important;
+}
+
+.dark button, 
+.dark a {
+  color: #52BCA2 !important;
+}
+
+.dark button:hover, 
+.dark a:hover {
+  color: #52BCA2 !important;
+  opacity: 0.8;
+}
+
+.dark .border-stone {
+  border-color: #2C5C5A !important;
 }
