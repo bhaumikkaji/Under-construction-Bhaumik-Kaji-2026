@@ -74,7 +74,6 @@ export function usePasswordProtection() {
                 className="w-full p-3 border border-indigoPurple/30 dark:border-cyberborder bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-indigoPurple dark:focus:ring-cybertext"
                 required
                 ref={inputRef}
-                // Focus the input when it's rendered
                 autoFocus
               />
             </div>

@@ -92,7 +92,7 @@ export function CaptchaVerification({
             />
             
             <DialogFooter>
-              <Button type="submit" className="bg-indigoPurple dark:bg-cybertext text-white dark:text-darkbg">
+              <Button type="submit" className="bg-indigoPurple text-white dark:bg-cyberborder/30 dark:text-cybertext">
                 Verify
               </Button>
             </DialogFooter>

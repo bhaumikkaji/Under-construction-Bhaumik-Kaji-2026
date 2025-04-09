@@ -9,32 +9,32 @@
 @layer base {
   :root {
     --background: 0 0% 98%;
-    --foreground: 257 70% 46%; /* Changed to indigo purple */
+    --foreground: 257 70% 46%; /* Purple color */
 
     --card: 0 0% 98%;
-    --card-foreground: 257 70% 46%; /* Changed to indigo purple */
+    --card-foreground: 257 70% 46%;
 
     --popover: 0 0% 98%;
-    --popover-foreground: 257 70% 46%; /* Changed to indigo purple */
+    --popover-foreground: 257 70% 46%;
 
-    --primary: 257 70% 46%; /* Changed to indigo purple */
+    --primary: 257 70% 46%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 30 25% 90%;
-    --secondary-foreground: 257 70% 46%; /* Changed to indigo purple */
+    --secondary-foreground: 257 70% 46%;
 
     --muted: 30 25% 95%;
-    --muted-foreground: 257 70% 30%; /* Changed to slightly darker indigo purple */
+    --muted-foreground: 257 70% 30%;
 
     --accent: 30 25% 90%;
-    --accent-foreground: 257 70% 46%; /* Changed to indigo purple */
+    --accent-foreground: 257 70% 46%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 257 70% 46%; /* Changed to indigo purple */
+    --ring: 257 70% 46%;
 
     --radius: 0.5rem;
   }
@@ -133,7 +133,7 @@
 .cursor-dot {
   width: 5px;
   height: 5px;
-  background-color: #3526C8; /* Changed from navy to indigo purple */
+  background-color: #3526C8;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -148,7 +148,7 @@
 .cursor-outline {
   width: 30px;
   height: 30px;
-  border: 1px solid #3526C8; /* Changed from navy to indigo purple */
+  border: 1px solid #3526C8;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -196,7 +196,6 @@
 }
 
 .dark * {
-  --tw-bg-opacity: 1;
   color: #52BCA2;
 }
 
@@ -205,17 +204,13 @@
 }
 
 .dark .bg-stone, 
-.dark .bg-navy,
 .dark .bg-indigoPurple, 
 .dark .bg-offwhite {
   background-color: #1E1E1E !important;
 }
 
 .dark .text-white,
-.dark .text-navy,
 .dark .text-indigoPurple,
-.dark .text-navy\/70,
-.dark .text-navy\/80,
 .dark .text-indigoPurple\/70,
 .dark .text-indigoPurple\/80 {
   color: #52BCA2 !important;

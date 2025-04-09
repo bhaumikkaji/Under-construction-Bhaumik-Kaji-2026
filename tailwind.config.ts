@@ -71,11 +71,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Portfolio specific colors
-				navy: "#2F3E62",
 				stone: "#EAE7E1",
 				charcoal: "#333333",
 				offwhite: "#F7F7F7",
-				indigoPurple: "#3526C8", // Added the purple color from the image
+				indigoPurple: "#3526C8", // Primary purple color
 				// Dark mode colors - standardized
 				darkbg: "#1E1E1E", 
 				cybertext: "#52BCA2", 
