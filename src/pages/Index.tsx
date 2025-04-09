@@ -72,12 +72,13 @@ export default function Index() {
                     View Projects
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
-                  <Link 
-                    to="/contact" 
+                  <a 
+                    href="mailto:bhaumikkaji@gmail.com?subject=Portfolio%20Connect%20-%20New%20Inquiry&body=Hello%20Bhaumik,%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20a%20potential%20project.%0A%0ABest%20regards,%0A"
                     className="inline-flex items-center px-6 py-3 border border-navy dark:border-cybertext text-navy dark:text-cybertext rounded-md hover:bg-stone dark:hover:bg-darkbg/50 transition-colors"
                   >
                     Get in Touch
-                  </Link>
+                    <ArrowRight size={18} className="ml-2" />
+                  </a>
                 </div>
               </motion.div>
             </div>
