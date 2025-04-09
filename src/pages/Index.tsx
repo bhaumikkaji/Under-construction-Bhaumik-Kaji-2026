@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -16,29 +15,22 @@ export default function Index() {
     window.scrollTo(0, 0);
   }, []);
   
-  // Function to handle email contact with metadata
   const handleContactClick = (e: React.MouseEvent, source: string = "footer") => {
     e.preventDefault();
     
-    // Store the pending action details
     setPendingEmailAction({source});
     
-    // Open CAPTCHA verification
     setIsCaptchaOpen(true);
   };
   
-  // Function called after successful CAPTCHA verification
   const handleCaptchaSuccess = () => {
-    // Creating email with metadata
     const subject = encodeURIComponent("Contact from Portfolio Website");
     const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${pendingEmailAction.source} section).\n\n`);
     
-    // Open email client
     window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
   };
   
   return <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="container mx-auto px-6 pt-20 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
@@ -49,7 +41,7 @@ export default function Index() {
                 transition={{ duration: 0.5 }}
                 className="mb-8"
               >
-                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium bg-stone/50 py-2 px-4 inline-block">Senior Product Designer</span>
+                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium py-2 px-4 inline-block">Senior Product Designer</span>
               </motion.div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-10 leading-tight">
@@ -120,7 +112,6 @@ export default function Index() {
         </div>
       </section>
       
-      {/* Featured Section */}
       <section className="bg-stone py-24" id="featured-section">
         <div className="container mx-auto px-6">
           <AnimatedSection className="mb-12">
@@ -162,7 +153,6 @@ export default function Index() {
         </div>
       </section>
       
-      {/* About Section Preview */}
       <section id="about-section" className="container mx-auto py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection className="flex flex-col md:flex-row gap-12 items-center">
@@ -187,7 +177,6 @@ export default function Index() {
         </div>
       </section>
       
-      {/* Contact CTA */}
       <section id="contact-section" className="bg-navy text-white py-24 dark:bg-darkbg">
         <div className="container mx-auto px-6">
           <AnimatedSection className="max-w-3xl mx-auto text-center">
@@ -208,7 +197,6 @@ export default function Index() {
         </div>
       </section>
       
-      {/* CAPTCHA verification dialog */}
       <CaptchaVerification 
         isOpen={isCaptchaOpen}
         onOpenChange={setIsCaptchaOpen}
