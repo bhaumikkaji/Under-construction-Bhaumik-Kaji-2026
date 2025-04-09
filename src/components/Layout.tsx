@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -178,10 +177,7 @@ const Layout = ({ children }: LayoutProps) => {
               <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 LinkedIn
               </a>
-              <a href="#" onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }} className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors flex items-center">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors flex items-center">
                 <ArrowUp size={16} className="mr-1" />
                 Resume
               </a>
