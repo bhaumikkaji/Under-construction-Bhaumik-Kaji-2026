@@ -1,14 +1,26 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight } from "lucide-react";
+import { CaptchaVerification } from "@/components/CaptchaVerification";
 
 export default function Index() {
+  const [captchaOpen, setCaptchaOpen] = useState(false);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleContactClick = () => {
+    setCaptchaOpen(true);
+  };
+
+  const handleCaptchaSuccess = () => {
+    // Navigate to email after successful verification
+    window.location.href = "mailto:bhaumikkaji@gmail.com?subject=Portfolio%20Connect%20-%20New%20Inquiry&body=Hello%20Bhaumik,%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20a%20potential%20project.%0A%0ABest%20regards,%0A";
+  };
 
   return (
     <div className="min-h-screen">
@@ -72,13 +84,13 @@ export default function Index() {
                     View Projects
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
-                  <a 
-                    href="mailto:bhaumikkaji@gmail.com?subject=Portfolio%20Connect%20-%20New%20Inquiry&body=Hello%20Bhaumik,%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20a%20potential%20project.%0A%0ABest%20regards,%0A"
+                  <button 
+                    onClick={handleContactClick}
                     className="inline-flex items-center px-6 py-3 border border-navy dark:border-cybertext text-navy dark:text-cybertext rounded-md hover:bg-stone dark:hover:bg-darkbg/50 transition-colors"
                   >
                     Get in Touch
                     <ArrowRight size={18} className="ml-2" />
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             </div>
@@ -197,16 +209,23 @@ export default function Index() {
               Have a project in mind or just want to connect? I'm always open to discussing 
               design challenges and opportunities.
             </p>
-            <a 
-              href="mailto:bhaumikkaji@gmail.com?subject=Portfolio%20Connect%20-%20New%20Inquiry&body=Hello%20Bhaumik,%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20about%20a%20potential%20project.%0A%0ABest%20regards,%0A"
+            <button 
+              onClick={handleContactClick}
               className="inline-flex items-center px-6 py-3 bg-white dark:bg-cybertext text-navy dark:text-darkbg rounded-md hover:bg-white/90 dark:hover:bg-cybertext/90 transition-colors"
             >
               Get in Touch
               <ArrowRight size={18} className="ml-2" />
-            </a>
+            </button>
           </AnimatedSection>
         </div>
       </section>
+
+      {/* CAPTCHA Verification Dialog */}
+      <CaptchaVerification 
+        isOpen={captchaOpen} 
+        onOpenChange={setCaptchaOpen} 
+        onSuccess={handleCaptchaSuccess} 
+      />
     </div>
   );
 }
