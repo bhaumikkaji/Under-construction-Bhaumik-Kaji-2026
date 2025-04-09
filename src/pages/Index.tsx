@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -48,7 +49,7 @@ export default function Index() {
                 transition={{ duration: 0.5 }}
                 className="mb-8"
               >
-                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium bg-stone/50 py-2 px-4 rounded-full inline-block">Senior Product Designer</span>
+                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium bg-stone/50 py-2 px-4 inline-block">Senior Product Designer</span>
               </motion.div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-10 leading-tight">
