@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import { ArrowUp } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,7 +17,6 @@ const Layout = ({ children }: LayoutProps) => {
   useEffect(() => {
     setMounted(true);
     
-    // Add scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -38,16 +38,13 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   useEffect(() => {
-    // Close mobile menu when route changes
     setIsOpen(false);
   }, [location]);
 
   const scrollToSection = (id: string) => {
-    // If we're not on the home page, navigate to home first and then scroll
     if (location.pathname !== '/') {
       navigate('/', { state: { scrollTo: id } });
     } else {
-      // If we're already on the home page, just scroll
       const element = document.getElementById(id);
       if (element) {
         setIsOpen(false);
@@ -56,16 +53,13 @@ const Layout = ({ children }: LayoutProps) => {
     }
   };
 
-  // Check for scrollTo in location state when component mounts or updates
   useEffect(() => {
     if (location.state && location.state.scrollTo) {
       const { scrollTo } = location.state as { scrollTo: string };
       const element = document.getElementById(scrollTo);
       if (element) {
-        // Small timeout to ensure the page has loaded
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
-          // Clear the state to prevent scrolling on page refresh
           navigate('/', { replace: true, state: {} });
         }, 100);
       }
@@ -87,7 +81,6 @@ const Layout = ({ children }: LayoutProps) => {
           </motion.div>
           
           <div className="flex items-center">
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8 mr-4">
               <NavLink to="/" label="Home" currentPath={location.pathname} />
               <NavLink to="/projects" label="Projects" currentPath={location.pathname} />
@@ -105,10 +98,8 @@ const Layout = ({ children }: LayoutProps) => {
               </button>
             </nav>
             
-            {/* Theme Toggle Button */}
             <ThemeToggle />
             
-            {/* Mobile Navigation Button */}
             <button 
               className="md:hidden flex flex-col space-y-1.5 z-50 ml-4"
               onClick={() => setIsOpen(!isOpen)}
@@ -134,7 +125,6 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </header>
       
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
@@ -187,8 +177,12 @@ const Layout = ({ children }: LayoutProps) => {
               <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 LinkedIn
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
-                Resume
+              <a href="#" onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }} className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors flex items-center">
+                <ArrowUp size={16} className="mr-1" />
+                Back to top
               </a>
               <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 Email
@@ -201,7 +195,6 @@ const Layout = ({ children }: LayoutProps) => {
   );
 };
 
-// Desktop Navigation Link
 const NavLink = ({ to, label, currentPath }: { to: string; label: string; currentPath: string }) => {
   const isActive = currentPath === to || (to !== '/' && currentPath.startsWith(to));
   
@@ -224,7 +217,6 @@ const NavLink = ({ to, label, currentPath }: { to: string; label: string; curren
   );
 };
 
-// Mobile Navigation Link
 const MobileNavLink = ({ 
   to, 
   label,
