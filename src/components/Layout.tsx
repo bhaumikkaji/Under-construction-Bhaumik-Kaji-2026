@@ -4,9 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { Mail } from "lucide-react";
 import { CaptchaVerification } from "./CaptchaVerification";
+import { Button } from "./ui/button";
+
 interface LayoutProps {
   children: React.ReactNode;
 }
+
 const Layout = ({
   children
 }: LayoutProps) => {
@@ -20,6 +23,7 @@ const Layout = ({
   }>({
     source: ""
   });
+
   const handleContactClick = (e: React.MouseEvent, source: string = "nav") => {
     e.preventDefault();
     setPendingEmailAction({
@@ -27,11 +31,13 @@ const Layout = ({
     });
     setIsCaptchaOpen(true);
   };
+
   const handleCaptchaSuccess = () => {
     const subject = encodeURIComponent("Contact from Portfolio Website");
     const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${pendingEmailAction.source} navigation).\n\n`);
     window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
   };
+
   useEffect(() => {
     setMounted(true);
     const observer = new IntersectionObserver(entries => {
@@ -51,14 +57,17 @@ const Layout = ({
       elements.forEach(el => observer.unobserve(el));
     };
   }, []);
+
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
   const handleNavigation = (path: string) => {
     if (location.pathname !== path) {
       navigate(path);
     }
   };
+
   const scrollToSection = (id: string) => {
     if (location.pathname !== '/') {
       navigate('/', {
@@ -76,6 +85,7 @@ const Layout = ({
       }
     }
   };
+
   useEffect(() => {
     if (location.state && location.state.scrollTo) {
       const {
@@ -97,6 +107,7 @@ const Layout = ({
       }
     }
   }, [location, navigate]);
+
   return <div className="min-h-screen flex flex-col bg-offwhite dark:bg-darkbg">
       <header className="py-6 px-6 md:py-8 md:px-8 fixed w-full z-40 backdrop-blur-sm bg-offwhite/80 dark:bg-darkbg/80">
         <div className="container mx-auto flex justify-between items-center">
@@ -112,7 +123,7 @@ const Layout = ({
             </Link>
           </motion.div>
           
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <nav className="hidden md:flex space-x-8 mr-4">
               <NavLink to="/" label="Home" currentPath={location.pathname} />
               <NavLink to="/projects" label="Projects" currentPath={location.pathname} />
@@ -121,33 +132,53 @@ const Layout = ({
             
             <ThemeToggle />
             
-            <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" className="md:hidden flex flex-col space-y-1.5 z-50 ml-4">
-              <motion.span className="w-6 h-0.5 bg-navy dark:bg-cybertext block" animate={isOpen ? {
-              rotate: 45,
-              y: 6
-            } : {
-              rotate: 0,
-              y: 0
-            }} transition={{
-              duration: 0.2
-            }} />
-              <motion.span className="w-6 h-0.5 bg-navy dark:bg-cybertext block" animate={isOpen ? {
-              opacity: 0
-            } : {
-              opacity: 1
-            }} transition={{
-              duration: 0.2
-            }} />
-              <motion.span className="w-6 h-0.5 bg-navy dark:bg-cybertext block" animate={isOpen ? {
-              rotate: -45,
-              y: -6
-            } : {
-              rotate: 0,
-              y: 0
-            }} transition={{
-              duration: 0.2
-            }} />
-            </button>
+            <Button 
+              onClick={() => setIsOpen(!isOpen)} 
+              aria-label="Toggle menu" 
+              variant="ghost"
+              size="icon"
+              className="md:hidden rounded-full hover:bg-stone/30 dark:hover:bg-cybertext/20"
+            >
+              <div className="flex flex-col space-y-1.5 items-center justify-center">
+                <motion.span 
+                  className="w-6 h-0.5 bg-navy dark:bg-cybertext block" 
+                  animate={isOpen ? {
+                    rotate: 45,
+                    y: 6
+                  } : {
+                    rotate: 0,
+                    y: 0
+                  }} 
+                  transition={{
+                    duration: 0.2
+                  }} 
+                />
+                <motion.span 
+                  className="w-6 h-0.5 bg-navy dark:bg-cybertext block" 
+                  animate={isOpen ? {
+                    opacity: 0
+                  } : {
+                    opacity: 1
+                  }} 
+                  transition={{
+                    duration: 0.2
+                  }} 
+                />
+                <motion.span 
+                  className="w-6 h-0.5 bg-navy dark:bg-cybertext block" 
+                  animate={isOpen ? {
+                    rotate: -45,
+                    y: -6
+                  } : {
+                    rotate: 0,
+                    y: 0
+                  }} 
+                  transition={{
+                    duration: 0.2
+                  }} 
+                />
+              </div>
+            </Button>
           </div>
         </div>
       </header>
@@ -214,6 +245,7 @@ const Layout = ({
       <CaptchaVerification isOpen={isCaptchaOpen} onOpenChange={setIsCaptchaOpen} onSuccess={handleCaptchaSuccess} />
     </div>;
 };
+
 const NavLink = ({
   to,
   label,
@@ -233,6 +265,7 @@ const NavLink = ({
     }} />}
     </Link>;
 };
+
 const MobileNavLink = ({
   to,
   label,
@@ -246,4 +279,5 @@ const MobileNavLink = ({
       {label}
     </Link>;
 };
+
 export default Layout;

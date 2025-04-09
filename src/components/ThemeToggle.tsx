@@ -2,14 +2,17 @@
 import { Moon, Sun, Computer } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 export function ThemeToggle() {
   const { theme, resolvedTheme, toggleTheme } = useTheme();
 
   return (
-    <button
+    <Button
       onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-stone/30 dark:hover:bg-cybertext/20 transition-colors"
+      variant="ghost"
+      size="icon"
+      className="rounded-full hover:bg-stone/30 dark:hover:bg-cybertext/20 transition-colors"
       aria-label={`Current theme: ${theme} (click to toggle)`}
     >
       {theme === "system" ? (
@@ -37,6 +40,6 @@ export function ThemeToggle() {
           <Moon className="w-5 h-5 text-navy dark:text-cybertext" />
         </motion.div>
       )}
-    </button>
+    </Button>
   );
 }
