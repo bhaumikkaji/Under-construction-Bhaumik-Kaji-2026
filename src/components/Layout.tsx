@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -10,6 +9,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -43,12 +43,34 @@ const Layout = ({ children }: LayoutProps) => {
   }, [location]);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      setIsOpen(false);
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If we're not on the home page, navigate to home first and then scroll
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      // If we're already on the home page, just scroll
+      const element = document.getElementById(id);
+      if (element) {
+        setIsOpen(false);
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
+
+  // Check for scrollTo in location state when component mounts or updates
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const { scrollTo } = location.state as { scrollTo: string };
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        // Small timeout to ensure the page has loaded
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+          // Clear the state to prevent scrolling on page refresh
+          navigate('/', { replace: true, state: {} });
+        }, 100);
+      }
+    }
+  }, [location, navigate]);
 
   return (
     <div className="min-h-screen flex flex-col bg-offwhite dark:bg-darkbg">
