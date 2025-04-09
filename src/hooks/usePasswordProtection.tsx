@@ -54,13 +54,13 @@ export function usePasswordProtection() {
             className="p-3 bg-white/80 dark:bg-darkbg/80 backdrop-blur-sm shadow-md rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-cyberborder/30 transition-colors"
             aria-label="Back to home"
           >
-            <ArrowLeft size={20} className="text-navy dark:text-cybertext" />
+            <ArrowLeft size={20} className="text-indigoPurple dark:text-cybertext" />
           </button>
         </div>
         
         <div className="max-w-md w-full p-8">
-          <h2 className="text-3xl font-grotesk mb-6 text-navy dark:text-cybertext">Password Protected</h2>
-          <p className="mb-6 text-navy/80 dark:text-cybertext/80">
+          <h2 className="text-3xl font-grotesk mb-6 text-indigoPurple dark:text-cybertext">Password Protected</h2>
+          <p className="mb-6 text-indigoPurple/80 dark:text-cybertext/80">
             This page is protected. Please enter the password to continue.
           </p>
           
@@ -71,7 +71,7 @@ export function usePasswordProtection() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
-                className="w-full p-3 border border-stone dark:border-cyberborder bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-navy dark:focus:ring-cybertext"
+                className="w-full p-3 border border-indigoPurple/30 dark:border-cyberborder bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-indigoPurple dark:focus:ring-cybertext"
                 required
                 ref={inputRef}
                 // Focus the input when it's rendered
@@ -83,7 +83,7 @@ export function usePasswordProtection() {
             
             <button
               type="submit"
-              className="w-full bg-navy dark:bg-cyberborder/30 text-white dark:text-cybertext py-3 rounded-md hover:bg-navy/90 dark:hover:bg-cyberborder/50 transition-colors"
+              className="w-full bg-indigoPurple dark:bg-cyberborder/30 text-white dark:text-cybertext py-3 rounded-md hover:bg-indigoPurple/90 dark:hover:bg-cyberborder/50 transition-colors"
             >
               Submit
             </button>

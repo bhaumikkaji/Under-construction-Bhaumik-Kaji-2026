@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
 
@@ -204,15 +205,19 @@
 }
 
 .dark .bg-stone, 
-.dark .bg-navy, 
+.dark .bg-navy,
+.dark .bg-indigoPurple, 
 .dark .bg-offwhite {
   background-color: #1E1E1E !important;
 }
 
 .dark .text-white,
 .dark .text-navy,
+.dark .text-indigoPurple,
 .dark .text-navy\/70,
-.dark .text-navy\/80 {
+.dark .text-navy\/80,
+.dark .text-indigoPurple\/70,
+.dark .text-indigoPurple\/80 {
   color: #52BCA2 !important;
 }
 
@@ -227,6 +232,8 @@
   opacity: 0.8;
 }
 
-.dark .border-stone {
+.dark .border-stone,
+.dark .border-indigoPurple,
+.dark .border-indigoPurple\/30 {
   border-color: #2C5C5A !important;
 }
