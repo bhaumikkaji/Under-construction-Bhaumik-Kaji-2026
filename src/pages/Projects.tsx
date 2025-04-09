@@ -36,16 +36,16 @@ const LazyProjectCard = ({ project, index }: { project: typeof projectsData[0], 
             />
           </div>
           <div className="mt-4">
-            <span className="text-xs text-navy/60 dark:text-cybertext/80 uppercase tracking-wider">
+            <span className="text-xs text-indigoPurple/60 dark:text-cybertext/80 uppercase tracking-wider">
               {project.category}
             </span>
-            <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mt-1 group-hover:underline">
+            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mt-1 group-hover:underline">
               {project.title}
             </h3>
-            <p className="text-navy/70 dark:text-cybertext/90 mt-2 line-clamp-2">
+            <p className="text-indigoPurple/70 dark:text-cybertext/90 mt-2 line-clamp-2">
               {project.description}
             </p>
-            <div className="mt-4 inline-flex items-center text-navy dark:text-cybertext font-medium">
+            <div className="mt-4 inline-flex items-center text-indigoPurple dark:text-cybertext font-medium">
               View Project
               <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -86,14 +86,14 @@ export default function Projects() {
               className="p-3 bg-white/80 dark:bg-darkbg/80 backdrop-blur-sm shadow-md rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-cyberborder/30 transition-colors"
               aria-label="Back to home"
             >
-              <ArrowLeft size={20} className="text-navy dark:text-cybertext" />
+              <ArrowLeft size={20} className="text-indigoPurple dark:text-cybertext" />
             </Link>
           </div>
           
           <section className="container mx-auto px-6 pt-20 mb-12">
             <AnimatedSection className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-grotesk text-navy dark:text-cybertext mb-6">Projects</h1>
-              <p className="text-navy/80 dark:text-cybertext text-lg">
+              <h1 className="text-4xl md:text-5xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Projects</h1>
+              <p className="text-indigoPurple/80 dark:text-cybertext text-lg">
                 A curated selection of my work spanning product design, UX research, 
                 and design systems at Microsoft and beyond.
               </p>

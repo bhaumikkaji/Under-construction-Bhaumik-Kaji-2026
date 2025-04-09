@@ -60,8 +60,8 @@ export default function SingleProject() {
   if (!project) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-offwhite dark:bg-darkbg">
-        <h1 className="text-3xl font-grotesk text-navy dark:text-cybertext mb-4">Project Not Found</h1>
-        <p className="text-navy/70 dark:text-cybertext/80 mb-6">The project you're looking for doesn't exist.</p>
+        <h1 className="text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Project Not Found</h1>
+        <p className="text-indigoPurple/70 dark:text-cybertext/80 mb-6">The project you're looking for doesn't exist.</p>
         <Button asChild variant="default">
           <Link to="/projects">Back to Projects</Link>
         </Button>
@@ -232,7 +232,7 @@ export default function SingleProject() {
           className="p-3 bg-white/80 dark:bg-darkbg/80 backdrop-blur-sm shadow-md rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-cyberborder/30 transition-colors"
           aria-label="Back to projects"
         >
-          <ArrowLeft size={20} className="text-navy dark:text-cybertext" />
+          <ArrowLeft size={20} className="text-indigoPurple dark:text-cybertext" />
         </Link>
       </div>
       
@@ -259,10 +259,10 @@ export default function SingleProject() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <span className="text-sm md:text-base uppercase tracking-wider text-navy/70 dark:text-cybertext/80 font-medium mb-2 block">
+              <span className="text-sm md:text-base uppercase tracking-wider text-indigoPurple/70 dark:text-cybertext/80 font-medium mb-2 block">
                 {project.category}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-grotesk text-navy dark:text-cybertext">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-grotesk text-indigoPurple dark:text-cybertext">
                 {project.title}
               </h1>
             </motion.div>
@@ -274,15 +274,15 @@ export default function SingleProject() {
       <section className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <AnimatedSection className="lg:col-span-2">
-            <div className="prose prose-navy dark:prose-invert max-w-none">
-              <p className="text-lg md:text-xl text-navy/90 dark:text-cybertext/90 leading-relaxed">
+            <div className="prose prose-indigoPurple dark:prose-invert max-w-none">
+              <p className="text-lg md:text-xl text-indigoPurple/90 dark:text-cybertext/90 leading-relaxed">
                 {project.description}
               </p>
-              <p className="text-navy/80 dark:text-cybertext/80">
+              <p className="text-indigoPurple/80 dark:text-cybertext/80">
                 As the {projectDetails.role} on this project, I was responsible for establishing the design direction, 
                 creating the component library, and ensuring a consistent user experience across all touchpoints.
               </p>
-              <p className="text-navy/80 dark:text-cybertext/80">
+              <p className="text-indigoPurple/80 dark:text-cybertext/80">
                 {projectDetails.challenges}
               </p>
             </div>
@@ -290,30 +290,30 @@ export default function SingleProject() {
           
           <AnimatedSection className="space-y-6">
             <div className="flex items-center space-x-3">
-              <Clock className="text-navy/60 dark:text-cybertext/60" size={18} />
+              <Clock className="text-indigoPurple/60 dark:text-cybertext/60" size={18} />
               <div>
-                <h3 className="text-sm text-navy/60 dark:text-cybertext/60 uppercase tracking-wider">Duration</h3>
-                <p className="text-navy dark:text-cybertext font-medium">{projectDetails.duration}</p>
+                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Duration</h3>
+                <p className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.duration}</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
-              <Users className="text-navy/60 dark:text-cybertext/60" size={18} />
+              <Users className="text-indigoPurple/60 dark:text-cybertext/60" size={18} />
               <div>
-                <h3 className="text-sm text-navy/60 dark:text-cybertext/60 uppercase tracking-wider">Team</h3>
-                <p className="text-navy dark:text-cybertext font-medium">{projectDetails.team}</p>
+                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Team</h3>
+                <p className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.team}</p>
               </div>
             </div>
             
             <div className="flex items-start space-x-3">
-              <Tag className="text-navy/60 dark:text-cybertext/60 mt-1" size={18} />
+              <Tag className="text-indigoPurple/60 dark:text-cybertext/60 mt-1" size={18} />
               <div>
-                <h3 className="text-sm text-navy/60 dark:text-cybertext/60 uppercase tracking-wider">Tools</h3>
+                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Tools</h3>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {projectDetails.tools.map((tool, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-stone dark:bg-cyberborder/30 rounded-full text-sm text-navy dark:text-cybertext"
+                      className="px-3 py-1 bg-stone dark:bg-cyberborder/30 rounded-full text-sm text-indigoPurple dark:text-cybertext"
                     >
                       {tool}
                     </span>
@@ -323,14 +323,14 @@ export default function SingleProject() {
             </div>
             
             <div className="flex items-start space-x-3">
-              <ExternalLink className="text-navy/60 dark:text-cybertext/60 mt-1" size={18} />
+              <ExternalLink className="text-indigoPurple/60 dark:text-cybertext/60 mt-1" size={18} />
               <div>
-                <h3 className="text-sm text-navy/60 dark:text-cybertext/60 uppercase tracking-wider">Deliverables</h3>
+                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Deliverables</h3>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {projectDetails.deliverables.map((deliverable, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-stone dark:bg-cyberborder/30 rounded-full text-sm text-navy dark:text-cybertext"
+                      className="px-3 py-1 bg-stone dark:bg-cyberborder/30 rounded-full text-sm text-indigoPurple dark:text-cybertext"
                     >
                       {deliverable}
                     </span>
@@ -347,22 +347,22 @@ export default function SingleProject() {
         <AnimatedSection>
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
-              <Target className="text-navy dark:text-cybertext" size={28} />
-              <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext">Project Brief & Challenge</h2>
+              <Target className="text-indigoPurple dark:text-cybertext" size={28} />
+              <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Project Brief & Challenge</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white/80 dark:bg-darkbg/80 p-6 rounded-xl">
-                <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-3">The Brief</h3>
-                <p className="text-navy/80 dark:text-cybertext/80">
+                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-3">The Brief</h3>
+                <p className="text-indigoPurple/80 dark:text-cybertext/80">
                   The client needed a complete redesign of their digital platform to improve usability, modernize the visual language, 
                   and better communicate their brand values to their target audience.
                 </p>
               </div>
               
               <div className="bg-white/80 dark:bg-darkbg/80 p-6 rounded-xl">
-                <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-3">The Challenge</h3>
-                <p className="text-navy/80 dark:text-cybertext/80">
+                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-3">The Challenge</h3>
+                <p className="text-indigoPurple/80 dark:text-cybertext/80">
                   {projectDetails.challenges}
                 </p>
               </div>
@@ -374,7 +374,7 @@ export default function SingleProject() {
       {/* Image gallery */}
       <section className="container mx-auto px-6 py-12">
         <AnimatedSection>
-          <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext mb-8">Project Gallery</h2>
+          <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-8">Project Gallery</h2>
           <Carousel className="w-full">
             <CarouselContent>
               {additionalImages.map((image, index) => (
@@ -408,16 +408,16 @@ export default function SingleProject() {
         <AnimatedSection>
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Users className="text-navy dark:text-cybertext" size={28} />
-              <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext">User Research</h2>
+              <Users className="text-indigoPurple dark:text-cybertext" size={28} />
+              <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">User Research</h2>
             </div>
             
-            <p className="text-navy/80 dark:text-cybertext/80 mb-8">
+            <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-8">
               Understanding our users was critical to creating an effective design. We conducted extensive research
               to identify key personas and map their journey through the product.
             </p>
             
-            <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-6">User Personas</h3>
+            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">User Personas</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {projectDetails.userPersonas.map((persona, index) => (
@@ -430,24 +430,24 @@ export default function SingleProject() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-lg font-bold text-navy dark:text-cybertext">{persona.name}</h4>
-                    <p className="text-navy/60 dark:text-cybertext/60 mb-3">{persona.role}</p>
+                    <h4 className="text-lg font-bold text-indigoPurple dark:text-cybertext">{persona.name}</h4>
+                    <p className="text-indigoPurple/60 dark:text-cybertext/60 mb-3">{persona.role}</p>
                     
                     <div className="mb-3">
-                      <span className="text-sm font-medium text-navy dark:text-cybertext">Goals:</span>
-                      <p className="text-navy/80 dark:text-cybertext/80">{persona.goals}</p>
+                      <span className="text-sm font-medium text-indigoPurple dark:text-cybertext">Goals:</span>
+                      <p className="text-indigoPurple/80 dark:text-cybertext/80">{persona.goals}</p>
                     </div>
                     
                     <div>
-                      <span className="text-sm font-medium text-navy dark:text-cybertext">Pain Points:</span>
-                      <p className="text-navy/80 dark:text-cybertext/80">{persona.pain_points}</p>
+                      <span className="text-sm font-medium text-indigoPurple dark:text-cybertext">Pain Points:</span>
+                      <p className="text-indigoPurple/80 dark:text-cybertext/80">{persona.pain_points}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
             
-            <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-6">User Journey</h3>
+            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">User Journey</h3>
             
             <div className="overflow-x-auto pb-6">
               <div className="grid grid-cols-5 gap-4 min-w-[900px]">
@@ -462,13 +462,13 @@ export default function SingleProject() {
                     </div>
                     <div className="p-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <div className="w-6 h-6 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center text-navy dark:text-cybertext font-bold">
+                        <div className="w-6 h-6 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center text-indigoPurple dark:text-cybertext font-bold">
                           {index + 1}
                         </div>
-                        <h4 className="font-bold text-navy dark:text-cybertext">{stage.stage}</h4>
+                        <h4 className="font-bold text-indigoPurple dark:text-cybertext">{stage.stage}</h4>
                       </div>
-                      <p className="text-sm text-navy/80 dark:text-cybertext/80 mb-2">{stage.description}</p>
-                      <div className="text-xs text-navy/60 dark:text-cybertext/60">
+                      <p className="text-sm text-indigoPurple/80 dark:text-cybertext/80 mb-2">{stage.description}</p>
+                      <div className="text-xs text-indigoPurple/60 dark:text-cybertext/60">
                         <span className="font-medium">Emotions:</span> {stage.emotions}
                       </div>
                     </div>
@@ -483,7 +483,7 @@ export default function SingleProject() {
       {/* Design Process */}
       <section className="container mx-auto px-6 py-12">
         <AnimatedSection>
-          <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext mb-8">Design Process</h2>
+          <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-8">Design Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projectDetails.process.map((step, index) => (
               <motion.div 
@@ -501,10 +501,10 @@ export default function SingleProject() {
                     className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-2">
+                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-2">
                   {index + 1}. {step.title}
                 </h3>
-                <p className="text-navy/70 dark:text-cybertext/80">
+                <p className="text-indigoPurple/70 dark:text-cybertext/80">
                   {step.description}
                 </p>
               </motion.div>
@@ -517,12 +517,12 @@ export default function SingleProject() {
       <section className="container mx-auto px-6 py-12 bg-stone/30 dark:bg-cyberborder/10 rounded-2xl my-12">
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-8">
-            <PenTool className="text-navy dark:text-cybertext" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext">Wireframes & Design Iterations</h2>
+            <PenTool className="text-indigoPurple dark:text-cybertext" size={28} />
+            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Wireframes & Design Iterations</h2>
           </div>
           
           <div className="mb-12">
-            <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-6">Initial Wireframes</h3>
+            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Initial Wireframes</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {projectDetails.wireframes.map((wireframe, index) => (
                 <div key={index} className="overflow-hidden rounded-lg bg-white dark:bg-darkbg p-2">
@@ -537,20 +537,20 @@ export default function SingleProject() {
           </div>
           
           <div>
-            <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-6">Design Evolution</h3>
+            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Design Evolution</h3>
             <div className="space-y-12">
               {projectDetails.designIterations.map((iteration, index) => (
                 <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div className={`order-2 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <h4 className="text-lg font-medium text-navy dark:text-cybertext mb-2">
+                    <h4 className="text-lg font-medium text-indigoPurple dark:text-cybertext mb-2">
                       Version {iteration.version}
                     </h4>
-                    <p className="text-navy/80 dark:text-cybertext/80 mb-4">
+                    <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
                       {iteration.description}
                     </p>
                     <div className="bg-white/50 dark:bg-darkbg/50 p-4 rounded-lg">
-                      <span className="text-sm font-medium text-navy dark:text-cybertext block mb-2">Feedback:</span>
-                      <p className="text-navy/70 dark:text-cybertext/70 italic">
+                      <span className="text-sm font-medium text-indigoPurple dark:text-cybertext block mb-2">Feedback:</span>
+                      <p className="text-indigoPurple/70 dark:text-cybertext/70 italic">
                         "{iteration.feedback}"
                       </p>
                     </div>
@@ -575,36 +575,36 @@ export default function SingleProject() {
       <section className="container mx-auto px-6 py-12">
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-8">
-            <CheckCircle className="text-navy dark:text-cybertext" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext">Testing & Results</h2>
+            <CheckCircle className="text-indigoPurple dark:text-cybertext" size={28} />
+            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Testing & Results</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div className="col-span-1 lg:col-span-2">
-              <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-4">Key Findings</h3>
+              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Key Findings</h3>
               <ul className="space-y-4">
                 {projectDetails.testingResults.keyFindings.map((finding, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="min-w-6 h-6 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center text-navy dark:text-cybertext font-bold text-sm mt-0.5">
+                    <div className="min-w-6 h-6 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center text-indigoPurple dark:text-cybertext font-bold text-sm mt-0.5">
                       {index + 1}
                     </div>
-                    <p className="text-navy/80 dark:text-cybertext/80">{finding}</p>
+                    <p className="text-indigoPurple/80 dark:text-cybertext/80">{finding}</p>
                   </li>
                 ))}
               </ul>
             </div>
             
             <div className="col-span-1">
-              <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-4">Test Metrics</h3>
+              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Test Metrics</h3>
               <div className="space-y-6">
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm text-navy/70 dark:text-cybertext/70">Usability Score</span>
-                    <span className="text-navy dark:text-cybertext font-medium">{projectDetails.testingResults.usabilityScore}%</span>
+                    <span className="text-sm text-indigoPurple/70 dark:text-cybertext/70">Usability Score</span>
+                    <span className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.testingResults.usabilityScore}%</span>
                   </div>
                   <div className="h-2 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-navy dark:bg-cybertext rounded-full" 
+                      className="h-full bg-indigoPurple dark:bg-cybertext rounded-full" 
                       style={{ width: `${projectDetails.testingResults.usabilityScore}%` }}
                     ></div>
                   </div>
@@ -612,12 +612,12 @@ export default function SingleProject() {
                 
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm text-navy/70 dark:text-cybertext/70">Task Completion</span>
-                    <span className="text-navy dark:text-cybertext font-medium">{projectDetails.testingResults.taskCompletionRate}%</span>
+                    <span className="text-sm text-indigoPurple/70 dark:text-cybertext/70">Task Completion</span>
+                    <span className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.testingResults.taskCompletionRate}%</span>
                   </div>
                   <div className="h-2 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-navy dark:bg-cybertext rounded-full" 
+                      className="h-full bg-indigoPurple dark:bg-cybertext rounded-full" 
                       style={{ width: `${projectDetails.testingResults.taskCompletionRate}%` }}
                     ></div>
                   </div>
@@ -625,12 +625,12 @@ export default function SingleProject() {
                 
                 <div>
                   <div className="flex justify-between mb-2">
-                    <span className="text-sm text-navy/70 dark:text-cybertext/70">Satisfaction Rate</span>
-                    <span className="text-navy dark:text-cybertext font-medium">{projectDetails.testingResults.satisfactionRate}%</span>
+                    <span className="text-sm text-indigoPurple/70 dark:text-cybertext/70">Satisfaction Rate</span>
+                    <span className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.testingResults.satisfactionRate}%</span>
                   </div>
                   <div className="h-2 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-navy dark:bg-cybertext rounded-full" 
+                      className="h-full bg-indigoPurple dark:bg-cybertext rounded-full" 
                       style={{ width: `${projectDetails.testingResults.satisfactionRate}%` }}
                     ></div>
                   </div>
@@ -642,7 +642,7 @@ export default function SingleProject() {
       </section>
       
       {/* My Contribution */}
-      <section className="container mx-auto px-6 py-12 bg-navy dark:bg-cyberborder/40 rounded-2xl my-12 text-white">
+      <section className="container mx-auto px-6 py-12 bg-indigoPurple dark:bg-cyberborder/40 rounded-2xl my-12 text-white">
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-8">
             <Puzzle className="text-white" size={28} />
@@ -682,29 +682,29 @@ export default function SingleProject() {
       <section className="container mx-auto px-6 py-12">
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-8">
-            <Award className="text-navy dark:text-cybertext" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext">Outcomes & Impact</h2>
+            <Award className="text-indigoPurple dark:text-cybertext" size={28} />
+            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Outcomes & Impact</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-4">Business Impact</h3>
+              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Business Impact</h3>
               <div className="space-y-4">
                 {projectDetails.outcomes.businessImpact.map((impact, index) => (
                   <div key={index} className="bg-stone/30 dark:bg-cyberborder/20 p-6 rounded-lg">
-                    <p className="text-xl font-medium text-navy dark:text-cybertext text-center">{impact}</p>
+                    <p className="text-xl font-medium text-indigoPurple dark:text-cybertext text-center">{impact}</p>
                   </div>
                 ))}
               </div>
             </div>
             
             <div>
-              <h3 className="text-xl font-grotesk text-navy dark:text-cybertext mb-4">Recognition</h3>
+              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Recognition</h3>
               <div className="space-y-4">
                 {projectDetails.outcomes.awards.map((award, index) => (
                   <div key={index} className="flex items-center gap-4 bg-stone/30 dark:bg-cyberborder/20 p-6 rounded-lg">
-                    <Award className="text-navy/60 dark:text-cybertext/60" size={24} />
-                    <p className="font-medium text-navy dark:text-cybertext">{award}</p>
+                    <Award className="text-indigoPurple/60 dark:text-cybertext/60" size={24} />
+                    <p className="font-medium text-indigoPurple dark:text-cybertext">{award}</p>
                   </div>
                 ))}
               </div>
@@ -724,11 +724,11 @@ export default function SingleProject() {
             <CollapsibleTrigger asChild>
               <button className="flex items-center justify-between w-full p-6 text-left bg-stone/20 dark:bg-cyberborder/10 hover:bg-stone/30 dark:hover:bg-cyberborder/20 transition-colors">
                 <div className="flex items-center gap-3">
-                  <Layers className="text-navy dark:text-cybertext" size={24} />
-                  <h2 className="text-2xl font-grotesk text-navy dark:text-cybertext">Technical Specifications</h2>
+                  <Layers className="text-indigoPurple dark:text-cybertext" size={24} />
+                  <h2 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext">Technical Specifications</h2>
                 </div>
-                <div className="flex items-center justify-center w-6 h-6 rounded-full border border-navy/20 dark:border-cybertext/20">
-                  <span className={`transform transition-transform ${isOpen ? 'rotate-180' : ''} text-navy dark:text-cybertext`}>↓</span>
+                <div className="flex items-center justify-center w-6 h-6 rounded-full border border-indigoPurple/20 dark:border-cybertext/20">
+                  <span className={`transform transition-transform ${isOpen ? 'rotate-180' : ''} text-indigoPurple dark:text-cybertext`}>↓</span>
                 </div>
               </button>
             </CollapsibleTrigger>
@@ -736,50 +736,50 @@ export default function SingleProject() {
             <CollapsibleContent className="p-6 bg-white dark:bg-darkbg">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-lg font-grotesk text-navy dark:text-cybertext mb-4">Design System</h3>
-                  <p className="text-navy/80 dark:text-cybertext/80 mb-4">
+                  <h3 className="text-lg font-grotesk text-indigoPurple dark:text-cybertext mb-4">Design System</h3>
+                  <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
                     We created a comprehensive design system with the following components:
                   </p>
-                  <ul className="space-y-2 text-navy/80 dark:text-cybertext/80">
+                  <ul className="space-y-2 text-indigoPurple/80 dark:text-cybertext/80">
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Typography system with 4 font weights
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Color palette with 8 primary colors and 12 accent colors
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Component library with 35+ reusable UI elements
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Responsive grid system for all screen sizes
                     </li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-grotesk text-navy dark:text-cybertext mb-4">Technologies Used</h3>
-                  <p className="text-navy/80 dark:text-cybertext/80 mb-4">
+                  <h3 className="text-lg font-grotesk text-indigoPurple dark:text-cybertext mb-4">Technologies Used</h3>
+                  <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
                     The project was implemented using the following technologies:
                   </p>
-                  <ul className="space-y-2 text-navy/80 dark:text-cybertext/80">
+                  <ul className="space-y-2 text-indigoPurple/80 dark:text-cybertext/80">
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Frontend: React, TypeScript, Tailwind CSS
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Backend: Node.js, Express, MongoDB
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       Design: Figma, Adobe Creative Suite
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-navy dark:bg-cybertext"></span>
+                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
                       User Testing: Maze, Hotjar, UserTesting
                     </li>
                   </ul>
@@ -794,8 +794,8 @@ export default function SingleProject() {
       <section className="container mx-auto px-6 py-12">
         <AnimatedSection>
           <div className="text-center">
-            <span className="text-sm text-navy/60 dark:text-cybertext/60 uppercase tracking-wider">Continue exploring</span>
-            <h2 className="text-2xl md:text-3xl font-grotesk text-navy dark:text-cybertext mb-6">Next Project</h2>
+            <span className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Continue exploring</span>
+            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Next Project</h2>
             <Button asChild size="lg" className="rounded-full px-8">
               <Link to={`/project/${(project.id % projectsData.length) + 1}`}>
                 View Next Project
