@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -40,9 +39,6 @@ export default function Index() {
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-20 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-stone/50 rounded-full blur-3xl opacity-50 z-0"></div>
-        <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-stone/70 rounded-full blur-3xl opacity-50 z-0"></div>
-        
         <div className="relative z-10 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7">
