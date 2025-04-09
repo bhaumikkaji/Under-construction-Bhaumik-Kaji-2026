@@ -21,7 +21,7 @@ export function ThemeToggle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <Computer className="w-5 h-5 text-navy dark:text-cybertext" />
+          <Computer className="w-5 h-5 text-indigoPurple dark:text-cybertext" />
         </motion.div>
       ) : theme === "light" ? (
         <motion.div
@@ -29,7 +29,7 @@ export function ThemeToggle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <Sun className="w-5 h-5 text-navy dark:text-cybertext" />
+          <Sun className="w-5 h-5 text-indigoPurple dark:text-cybertext" />
         </motion.div>
       ) : (
         <motion.div
@@ -37,7 +37,7 @@ export function ThemeToggle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <Moon className="w-5 h-5 text-navy dark:text-cybertext" />
+          <Moon className="w-5 h-5 text-indigoPurple dark:text-cybertext" />
         </motion.div>
       )}
     </Button>

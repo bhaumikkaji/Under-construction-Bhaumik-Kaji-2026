@@ -8,32 +8,32 @@
 @layer base {
   :root {
     --background: 0 0% 98%;
-    --foreground: 222 33% 28%;
+    --foreground: 257 70% 46%; /* Changed to indigo purple */
 
     --card: 0 0% 98%;
-    --card-foreground: 222 33% 28%;
+    --card-foreground: 257 70% 46%; /* Changed to indigo purple */
 
     --popover: 0 0% 98%;
-    --popover-foreground: 222 33% 28%;
+    --popover-foreground: 257 70% 46%; /* Changed to indigo purple */
 
-    --primary: 222 33% 28%;
+    --primary: 257 70% 46%; /* Changed to indigo purple */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 30 25% 90%;
-    --secondary-foreground: 222 33% 28%;
+    --secondary-foreground: 257 70% 46%; /* Changed to indigo purple */
 
     --muted: 30 25% 95%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 257 70% 30%; /* Changed to slightly darker indigo purple */
 
     --accent: 30 25% 90%;
-    --accent-foreground: 222 33% 28%;
+    --accent-foreground: 257 70% 46%; /* Changed to indigo purple */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222 33% 28%;
+    --ring: 257 70% 46%; /* Changed to indigo purple */
 
     --radius: 0.5rem;
   }
@@ -132,7 +132,7 @@
 .cursor-dot {
   width: 5px;
   height: 5px;
-  background-color: #2F3E62;
+  background-color: #3526C8; /* Changed from navy to indigo purple */
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -147,7 +147,7 @@
 .cursor-outline {
   width: 30px;
   height: 30px;
-  border: 1px solid #2F3E62;
+  border: 1px solid #3526C8; /* Changed from navy to indigo purple */
   border-radius: 50%;
   position: fixed;
   pointer-events: none;

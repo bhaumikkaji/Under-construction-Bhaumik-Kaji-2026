@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -118,7 +119,7 @@ const Layout = ({
         }} transition={{
           duration: 0.5
         }}>
-            <Link to="/" className="font-grotesk text-lg md:text-xl font-medium text-navy dark:text-cybertext">
+            <Link to="/" className="font-grotesk text-lg md:text-xl font-medium text-indigoPurple dark:text-cybertext">
               Bhaumik Kaji
             </Link>
           </motion.div>
@@ -141,7 +142,7 @@ const Layout = ({
             >
               <div className="flex flex-col space-y-1.5 items-center justify-center">
                 <motion.span 
-                  className="w-6 h-0.5 bg-navy dark:bg-cybertext block" 
+                  className="w-6 h-0.5 bg-indigoPurple dark:bg-cybertext block" 
                   animate={isOpen ? {
                     rotate: 45,
                     y: 6
@@ -154,7 +155,7 @@ const Layout = ({
                   }} 
                 />
                 <motion.span 
-                  className="w-6 h-0.5 bg-navy dark:bg-cybertext block" 
+                  className="w-6 h-0.5 bg-indigoPurple dark:bg-cybertext block" 
                   animate={isOpen ? {
                     opacity: 0
                   } : {
@@ -165,7 +166,7 @@ const Layout = ({
                   }} 
                 />
                 <motion.span 
-                  className="w-6 h-0.5 bg-navy dark:bg-cybertext block" 
+                  className="w-6 h-0.5 bg-indigoPurple dark:bg-cybertext block" 
                   animate={isOpen ? {
                     rotate: -45,
                     y: -6
@@ -200,7 +201,7 @@ const Layout = ({
               <a href="#" onClick={e => {
             handleContactClick(e, "mobile-nav");
             setIsOpen(false);
-          }} className="text-navy dark:text-cybertext font-grotesk font-medium text-2xl">
+          }} className="text-indigoPurple dark:text-cybertext font-grotesk font-medium text-2xl">
                 Contact
               </a>
             </nav>
@@ -224,17 +225,17 @@ const Layout = ({
       <footer className="py-8 px-6 border-t border-stone dark:border-cyberborder mt-16 bg-offwhite dark:bg-darkbg">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-navy/70 dark:text-cybertext mb-4 md:mb-0">
+            <p className="text-sm text-indigoPurple/70 dark:text-cybertext mb-4 md:mb-0">
               © {new Date().getFullYear()} Bhaumik Kaji. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-indigoPurple/70 dark:text-cybertext hover:text-indigoPurple dark:hover:text-cybertext/80 transition-colors">
                 Resume
               </a>
-              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
+              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-indigoPurple/70 dark:text-cybertext hover:text-indigoPurple dark:hover:text-cybertext/80 transition-colors">
                 LinkedIn
               </a>
-              <a href="#" onClick={e => handleContactClick(e, "footer")} className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80 transition-colors">
+              <a href="#" onClick={e => handleContactClick(e, "footer")} className="text-indigoPurple/70 dark:text-cybertext hover:text-indigoPurple dark:hover:text-cybertext/80 transition-colors">
                 Email
               </a>
             </div>
@@ -256,9 +257,9 @@ const NavLink = ({
   currentPath: string;
 }) => {
   const isActive = currentPath === to || to !== '/' && currentPath.startsWith(to);
-  return <Link to={to} className={`relative font-medium text-sm transition-colors ${isActive ? 'text-navy dark:text-cybertext' : 'text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext/80'}`}>
+  return <Link to={to} className={`relative font-medium text-sm transition-colors ${isActive ? 'text-indigoPurple dark:text-cybertext' : 'text-indigoPurple/70 dark:text-cybertext hover:text-indigoPurple dark:hover:text-cybertext/80'}`}>
       {label}
-      {isActive && <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-navy dark:bg-cybertext" layoutId="navIndicator" transition={{
+      {isActive && <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-indigoPurple dark:bg-cybertext" layoutId="navIndicator" transition={{
       type: 'spring',
       stiffness: 350,
       damping: 30
@@ -275,7 +276,7 @@ const MobileNavLink = ({
   label: string;
   setIsOpen: (isOpen: boolean) => void;
 }) => {
-  return <Link to={to} className="text-navy dark:text-cybertext font-grotesk font-medium text-2xl" onClick={() => setIsOpen(false)}>
+  return <Link to={to} className="text-indigoPurple dark:text-cybertext font-grotesk font-medium text-2xl" onClick={() => setIsOpen(false)}>
       {label}
     </Link>;
 };
