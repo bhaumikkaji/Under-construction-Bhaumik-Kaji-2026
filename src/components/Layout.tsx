@@ -177,8 +177,7 @@ const Layout = ({ children }: LayoutProps) => {
               <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 LinkedIn
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors flex items-center">
-                <ArrowUp size={16} className="mr-1" />
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 Resume
               </a>
               <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
