@@ -1,43 +1,80 @@
 
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+import emailjs from "@emailjs/browser";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+
+// Contact form schema
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  // Define form
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
     try {
-      // This is a simulation of form submission since we don't have a backend
-      // In a real implementation, you would send this data to a server
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Configure emailjs with your service ID, template ID, and public key
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+        to_email: "bhaumikkaji@gmail.com",
+        subject: "Portfolio connect - New message from " + data.name,
+      };
       
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
       // Show success message
       toast({
-        title: "Message sent!",
+        title: "Message sent successfully!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
       
-      // Clear form
-      setFormData({ name: "", email: "", message: "" });
+      // Reset form
+      form.reset();
       
     } catch (error) {
+      console.error("Error sending email:", error);
       toast({
         title: "Error sending message",
-        description: "Please try again later.",
+        description: "Please try again later or email me directly.",
         variant: "destructive",
       });
     } finally {
@@ -46,69 +83,89 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-md">
-      <div>
-        <label htmlFor="name" className="block mb-2 text-sm font-medium">
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-md">
+        <FormField
+          control={form.control}
           name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full p-3 border border-stone bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-navy"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-navy dark:text-cybertext">Name</FormLabel>
+              <FormControl>
+                <Input 
+                  placeholder="Your name" 
+                  {...field} 
+                  className="border-stone bg-transparent dark:border-cyberborder focus:ring-navy dark:focus:ring-cybertext"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <div>
-        <label htmlFor="email" className="block mb-2 text-sm font-medium">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
+        <FormField
+          control={form.control}
           name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full p-3 border border-stone bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-navy"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-navy dark:text-cybertext">Email</FormLabel>
+              <FormControl>
+                <Input 
+                  type="email" 
+                  placeholder="Your email address" 
+                  {...field} 
+                  className="border-stone bg-transparent dark:border-cyberborder focus:ring-navy dark:focus:ring-cybertext"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <div>
-        <label htmlFor="message" className="block mb-2 text-sm font-medium">
-          Message
-        </label>
-        <textarea
-          id="message"
+        <FormField
+          control={form.control}
           name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          rows={5}
-          className="w-full p-3 border border-stone bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-navy resize-none"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-navy dark:text-cybertext">Message</FormLabel>
+              <FormControl>
+                <Textarea 
+                  placeholder="Your message" 
+                  {...field} 
+                  rows={5}
+                  className="border-stone bg-transparent dark:border-cyberborder focus:ring-navy dark:focus:ring-cybertext resize-none" 
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors disabled:opacity-70"
-      >
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </button>
-
-      <p className="text-sm text-navy/70">
-        Or email me directly at{" "}
-        <a
-          href="mailto:bhaumikkaji@gmail.com"
-          className="underline hover:text-navy transition-colors"
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-navy text-white dark:bg-cybertext dark:text-darkbg hover:bg-navy/90 dark:hover:bg-cybertext/90"
         >
-          bhaumikkaji@gmail.com
-        </a>
-      </p>
-    </form>
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            "Send Message"
+          )}
+        </Button>
+
+        <p className="text-sm text-navy/70 dark:text-cybertext/70">
+          Or email me directly at{" "}
+          <a
+            href="mailto:bhaumikkaji@gmail.com"
+            className="underline hover:text-navy dark:hover:text-cybertext transition-colors"
+          >
+            bhaumikkaji@gmail.com
+          </a>
+        </p>
+      </form>
+    </Form>
   );
 }
