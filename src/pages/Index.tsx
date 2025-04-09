@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,79 +12,64 @@ export default function Index() {
   }, []);
   return <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <section className="container mx-auto px-6 pt-20 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-stone/50 rounded-full blur-3xl opacity-50 z-0"></div>
+        <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-stone/70 rounded-full blur-3xl opacity-50 z-0"></div>
+        
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7">
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.5
-            }} className="mb-8">
-                <span className="text-navy/70 uppercase tracking-wider text-sm">Senior Product Designer</span>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8"
+              >
+                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium bg-stone/50 py-2 px-4 rounded-full inline-block">Senior Product Designer</span>
               </motion.div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-8 md:mb-12 leading-tight">
-                <motion.span initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.5,
-                delay: 0.1
-              }} className="block">
-                  Designing
-                </motion.span>
-                <motion.span initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.5,
-                delay: 0.2
-              }} className="block">
-                  experiences
-                </motion.span>
-                <motion.span initial={{
-                opacity: 0,
-                y: 20
-              }} animate={{
-                opacity: 1,
-                y: 0
-              }} transition={{
-                duration: 0.5,
-                delay: 0.3
-              }} className="block">
-                  that matter
-                </motion.span>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-10 leading-tight">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="overflow-hidden relative"
+                >
+                  <span className="block">Designing</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="overflow-hidden relative"
+                >
+                  <span className="block text-navy/80">experiences</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="overflow-hidden relative"
+                >
+                  <span className="block font-bold">that matter</span>
+                </motion.div>
               </h1>
               
-              <motion.div initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.5,
-              delay: 0.4
-            }}>
-                <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.</p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <p className="text-lg md:text-xl text-navy/80 mb-10 max-w-2xl leading-relaxed border-l-4 border-navy/20 pl-6 py-2">
+                  I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.
+                </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link to="/projects" className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors">
+                  <Link to="/projects" className="inline-flex items-center px-8 py-4 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors font-medium">
                     View Projects
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
-                  <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-navy text-navy rounded-md hover:bg-stone transition-colors">
+                  <Link to="/contact" className="inline-flex items-center px-8 py-4 border-2 border-navy text-navy rounded-md hover:bg-stone/50 transition-colors font-medium">
                     Get in Touch
                   </Link>
                 </div>
@@ -96,10 +80,11 @@ export default function Index() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="md:col-span-5"
+              className="md:col-span-5 relative"
             >
-              <AspectRatio ratio={4/5} className="bg-stone rounded-lg overflow-hidden">
-                <Skeleton className="h-full w-full" />
+              <div className="absolute inset-0 bg-navy/5 rounded-2xl transform rotate-3 scale-105"></div>
+              <AspectRatio ratio={4/5} className="bg-stone rounded-xl overflow-hidden shadow-lg relative">
+                <img src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" alt="Bhaumik Kaji" className="h-full w-full object-cover" />
               </AspectRatio>
             </motion.div>
           </div>
