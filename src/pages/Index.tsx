@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Skeleton } from "@/components/ui/skeleton";
+
 export default function Index() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -12,79 +15,94 @@ export default function Index() {
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32">
         <div className="max-w-4xl mx-auto">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }} className="mb-8">
-            <span className="text-navy/70 uppercase tracking-wider text-sm">Senior Product Designer</span>
-          </motion.div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-8 md:mb-12 leading-tight">
-            <motion.span initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: 0.1
-          }} className="block">
-              Designing
-            </motion.span>
-            <motion.span initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: 0.2
-          }} className="block">
-              experiences
-            </motion.span>
-            <motion.span initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: 0.3
-          }} className="block">
-              that matter
-            </motion.span>
-          </h1>
-          
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5,
-          delay: 0.4
-        }}>
-            <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.</p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/projects" className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors">
-                View Projects
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-navy text-navy rounded-md hover:bg-stone transition-colors">
-                Get in Touch
-              </Link>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7">
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.5
+            }} className="mb-8">
+                <span className="text-navy/70 uppercase tracking-wider text-sm">Senior Product Designer</span>
+              </motion.div>
+              
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-8 md:mb-12 leading-tight">
+                <motion.span initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.1
+              }} className="block">
+                  Designing
+                </motion.span>
+                <motion.span initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.2
+              }} className="block">
+                  experiences
+                </motion.span>
+                <motion.span initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.3
+              }} className="block">
+                  that matter
+                </motion.span>
+              </h1>
+              
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.5,
+              delay: 0.4
+            }}>
+                <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.</p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/projects" className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors">
+                    View Projects
+                    <ArrowRight size={18} className="ml-2" />
+                  </Link>
+                  <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-navy text-navy rounded-md hover:bg-stone transition-colors">
+                    Get in Touch
+                  </Link>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="md:col-span-5"
+            >
+              <AspectRatio ratio={4/5} className="bg-stone rounded-lg overflow-hidden">
+                <Skeleton className="h-full w-full" />
+              </AspectRatio>
+            </motion.div>
+          </div>
         </div>
       </section>
       
