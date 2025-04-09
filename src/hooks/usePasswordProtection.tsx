@@ -1,10 +1,11 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function usePasswordProtection() {
   const [isProtected, setIsProtected] = useState(true);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
   const correctPassword = 'Bhaumikkaji';
 
   useEffect(() => {
@@ -15,6 +16,13 @@ export function usePasswordProtection() {
     }
   }, []);
 
+  // Focus the input field when there's an error
+  useEffect(() => {
+    if (error && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [error]);
+
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -24,6 +32,10 @@ export function usePasswordProtection() {
       sessionStorage.setItem('projectsAuthenticated', 'true');
     } else {
       setError('Incorrect password. Please try again.');
+      // Maintain focus after showing error
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
     }
   };
 
@@ -47,6 +59,9 @@ export function usePasswordProtection() {
                 placeholder="Enter password"
                 className="w-full p-3 border border-stone bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-navy"
                 required
+                ref={inputRef}
+                // Focus the input when it's rendered
+                autoFocus
               />
             </div>
             
