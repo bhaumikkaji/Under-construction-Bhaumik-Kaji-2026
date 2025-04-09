@@ -75,6 +75,11 @@ export default {
 				stone: "#EAE7E1",
 				charcoal: "#333333",
 				offwhite: "#F7F7F7",
+				// Cyberpunk dark mode colors
+				darkbg: "#051013", // Dark background from image
+				cybertext: "#64FFDA", // Cyan/teal text from image
+				cyberborder: "#2C5C5A", // Darker teal for borders
+				cybersecondary: "#0B2429", // Slightly lighter dark background
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

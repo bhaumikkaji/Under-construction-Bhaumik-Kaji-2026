@@ -32,6 +32,31 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     
     // Save the theme preference to localStorage
     localStorage.setItem("theme", theme);
+    
+    // Apply transition styles for smoother theme switching
+    const applyTransition = () => {
+      document.body.style.transition = "background-color 0.3s ease, color 0.3s ease";
+      document.body.querySelectorAll("*").forEach((element) => {
+        if (element instanceof HTMLElement) {
+          element.style.transition = "background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease";
+        }
+      });
+    };
+    
+    // Cleanup function to remove transitions after they complete
+    const removeTransition = () => {
+      setTimeout(() => {
+        document.body.style.transition = "";
+        document.body.querySelectorAll("*").forEach((element) => {
+          if (element instanceof HTMLElement) {
+            element.style.transition = "";
+          }
+        });
+      }, 300);
+    };
+    
+    applyTransition();
+    removeTransition();
   }, [theme]);
 
   const toggleTheme = () => {

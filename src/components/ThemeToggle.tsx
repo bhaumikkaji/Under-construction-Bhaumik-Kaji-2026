@@ -9,7 +9,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-stone/50 dark:hover:bg-navy/30 transition-colors"
+      className="p-2 rounded-full hover:bg-stone/30 dark:hover:bg-cybertext/20 transition-colors"
       aria-label="Toggle theme"
     >
       {theme === "light" ? (
@@ -18,7 +18,7 @@ export function ThemeToggle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <Moon className="w-5 h-5 text-navy dark:text-stone" />
+          <Moon className="w-5 h-5 text-navy dark:text-cybertext" />
         </motion.div>
       ) : (
         <motion.div
@@ -26,7 +26,7 @@ export function ThemeToggle() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <Sun className="w-5 h-5 text-navy dark:text-stone" />
+          <Sun className="w-5 h-5 text-navy dark:text-cybertext" />
         </motion.div>
       )}
     </button>
