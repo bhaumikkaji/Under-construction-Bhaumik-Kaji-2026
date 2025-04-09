@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
 export function ThemeToggle() {
-  const { theme, resolvedTheme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Button
