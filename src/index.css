@@ -209,6 +209,15 @@
   background-color: #1E1E1E !important;
 }
 
+/* Primary button in dark mode should be an exception to have the inverted colors */
+.dark .bg-cybertext {
+  background-color: #52BCA2 !important;
+}
+
+.dark .text-darkbg {
+  color: #1E1E1E !important;
+}
+
 .dark .text-white,
 .dark .text-indigoPurple,
 .dark .text-indigoPurple\/70,
@@ -221,10 +230,23 @@
   color: #52BCA2 !important;
 }
 
+/* Exception for primary buttons */
+.dark button.bg-cybertext,
+.dark a.bg-cybertext {
+  color: #1E1E1E !important;
+}
+
 .dark button:hover, 
 .dark a:hover {
   color: #52BCA2 !important;
   opacity: 0.8;
+}
+
+/* Exception for primary button hover */
+.dark button.bg-cybertext:hover,
+.dark a.bg-cybertext:hover {
+  color: #1E1E1E !important;
+  background-color: rgba(82, 188, 162, 0.9) !important;
 }
 
 .dark .border-stone,
