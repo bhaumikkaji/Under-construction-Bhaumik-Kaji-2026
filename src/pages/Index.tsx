@@ -6,76 +6,94 @@ import { ArrowRight, Mail } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CaptchaVerification } from "@/components/CaptchaVerification";
-
 export default function Index() {
   const [isCaptchaOpen, setIsCaptchaOpen] = useState(false);
-  const [pendingEmailAction, setPendingEmailAction] = useState<{source: string}>({source: ""});
-
+  const [pendingEmailAction, setPendingEmailAction] = useState<{
+    source: string;
+  }>({
+    source: ""
+  });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
   const handleContactClick = (e: React.MouseEvent, source: string = "footer") => {
     e.preventDefault();
-    
-    setPendingEmailAction({source});
-    
+    setPendingEmailAction({
+      source
+    });
     setIsCaptchaOpen(true);
   };
-  
   const handleCaptchaSuccess = () => {
     const subject = encodeURIComponent("Contact from Portfolio Website");
     const body = encodeURIComponent(`Hello Bhaumik,\n\nI'm reaching out from your portfolio website (${pendingEmailAction.source} section).\n\n`);
-    
     window.location.href = `mailto:bhaumikkaji@gmail.com?subject=${subject}&body=${body}`;
   };
-  
   return <div className="min-h-screen">
       <section className="container mx-auto px-6 pt-20 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mb-8"
-              >
-                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium py-2 px-4 inline-block">Senior Product Designer</span>
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.5
+            }} className="mb-8">
+                <span className="text-navy/70 uppercase tracking-wider text-sm font-medium py-2 inline-block px-0">Senior Product Designer</span>
               </motion.div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-10 leading-tight">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="overflow-hidden relative"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.1
+              }} className="overflow-hidden relative">
                   <span className="block">Designing</span>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="overflow-hidden relative"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.2
+              }} className="overflow-hidden relative">
                   <span className="block text-navy/80">experiences</span>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="overflow-hidden relative"
-                >
+                <motion.div initial={{
+                opacity: 0,
+                y: 20
+              }} animate={{
+                opacity: 1,
+                y: 0
+              }} transition={{
+                duration: 0.5,
+                delay: 0.3
+              }} className="overflow-hidden relative">
                   <span className="block font-bold">that matter</span>
                 </motion.div>
               </h1>
               
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.5,
+              delay: 0.4
+            }}>
                 <p className="text-lg md:text-xl text-navy/80 mb-10 max-w-2xl leading-relaxed border-l-4 border-navy/20 pl-6 py-2">
                   I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.
                 </p>
@@ -85,11 +103,7 @@ export default function Index() {
                     View Projects
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
-                  <a 
-                    href="#" 
-                    onClick={(e) => handleContactClick(e, "hero")}
-                    className="inline-flex items-center px-8 py-4 border-2 border-navy text-navy rounded-md hover:bg-stone/50 transition-colors font-medium dark:border-cybertext dark:text-cybertext"
-                  >
+                  <a href="#" onClick={e => handleContactClick(e, "hero")} className="inline-flex items-center px-8 py-4 border-2 border-navy text-navy rounded-md hover:bg-stone/50 transition-colors font-medium dark:border-cybertext dark:text-cybertext">
                     Get in Touch
                     <Mail size={18} className="ml-2" />
                   </a>
@@ -97,14 +111,18 @@ export default function Index() {
               </motion.div>
             </div>
             
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="md:col-span-5 relative"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.95
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.6,
+            delay: 0.5
+          }} className="md:col-span-5 relative">
               <div className="absolute inset-0 bg-navy/5 rounded-2xl transform rotate-3 scale-105"></div>
-              <AspectRatio ratio={4/5} className="bg-stone rounded-xl overflow-hidden shadow-lg relative">
+              <AspectRatio ratio={4 / 5} className="bg-stone rounded-xl overflow-hidden shadow-lg relative">
                 <img src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" alt="Bhaumik Kaji" className="h-full w-full object-cover" />
               </AspectRatio>
             </motion.div>
@@ -185,11 +203,7 @@ export default function Index() {
               Have a project in mind or just want to connect? I'm always open to discussing 
               design challenges and opportunities.
             </p>
-            <a 
-              href="#" 
-              onClick={(e) => handleContactClick(e, "footer")}
-              className="inline-flex items-center px-6 py-3 bg-white text-navy rounded-md hover:bg-white/90 transition-colors dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext dark:hover:bg-cybertext/10"
-            >
+            <a href="#" onClick={e => handleContactClick(e, "footer")} className="inline-flex items-center px-6 py-3 bg-white text-navy rounded-md hover:bg-white/90 transition-colors dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext dark:hover:bg-cybertext/10">
               Get in Touch
               <Mail size={18} className="ml-2" />
             </a>
@@ -197,10 +211,6 @@ export default function Index() {
         </div>
       </section>
       
-      <CaptchaVerification 
-        isOpen={isCaptchaOpen}
-        onOpenChange={setIsCaptchaOpen}
-        onSuccess={handleCaptchaSuccess}
-      />
+      <CaptchaVerification isOpen={isCaptchaOpen} onOpenChange={setIsCaptchaOpen} onSuccess={handleCaptchaSuccess} />
     </div>;
 }
