@@ -51,7 +51,7 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-offwhite dark:bg-darkbg">
       <header className="py-6 px-6 md:py-8 md:px-8 fixed w-full z-40 backdrop-blur-sm bg-offwhite/80 dark:bg-darkbg/80">
         <div className="container mx-auto flex justify-between items-center">
           <motion.div
@@ -71,13 +71,13 @@ const Layout = ({ children }: LayoutProps) => {
               <NavLink to="/projects" label="Projects" currentPath={location.pathname} />
               <button 
                 onClick={() => scrollToSection('about-section')} 
-                className="relative font-medium text-sm transition-colors text-navy/70 hover:text-navy dark:text-cybertext/70 dark:hover:text-cybertext"
+                className="relative font-medium text-sm transition-colors text-navy/70 hover:text-navy dark:text-cybertext dark:hover:text-cybertext"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact-section')} 
-                className="relative font-medium text-sm transition-colors text-navy/70 hover:text-navy dark:text-cybertext/70 dark:hover:text-cybertext"
+                className="relative font-medium text-sm transition-colors text-navy/70 hover:text-navy dark:text-cybertext dark:hover:text-cybertext"
               >
                 Contact
               </button>
@@ -155,20 +155,20 @@ const Layout = ({ children }: LayoutProps) => {
         )}
       </main>
       
-      <footer className="py-8 px-6 border-t border-stone dark:border-cyberborder mt-16">
+      <footer className="py-8 px-6 border-t border-stone dark:border-cyberborder mt-16 bg-offwhite dark:bg-darkbg">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-navy/70 dark:text-cybertext/70 mb-4 md:mb-0">
+            <p className="text-sm text-navy/70 dark:text-cybertext mb-4 md:mb-0">
               © {new Date().getFullYear()} Bhaumik Kaji. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext/70 hover:text-navy dark:hover:text-cybertext transition-colors">
+              <a href="https://www.linkedin.com/in/bhaumikkaji/" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 LinkedIn
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext/70 hover:text-navy dark:hover:text-cybertext transition-colors">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 Resume
               </a>
-              <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext/70 hover:text-navy dark:hover:text-cybertext transition-colors">
+              <a href="mailto:bhaumikkaji@gmail.com" className="text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext transition-colors">
                 Email
               </a>
             </div>
@@ -187,13 +187,13 @@ const NavLink = ({ to, label, currentPath }: { to: string; label: string; curren
     <Link 
       to={to}
       className={`relative font-medium text-sm transition-colors ${
-        isActive ? 'text-navy dark:text-stone' : 'text-navy/70 dark:text-stone/70 hover:text-navy dark:hover:text-stone'
+        isActive ? 'text-navy dark:text-cybertext' : 'text-navy/70 dark:text-cybertext hover:text-navy dark:hover:text-cybertext'
       }`}
     >
       {label}
       {isActive && (
         <motion.span 
-          className="absolute -bottom-1 left-0 w-full h-0.5 bg-navy dark:bg-stone"
+          className="absolute -bottom-1 left-0 w-full h-0.5 bg-navy dark:bg-cybertext"
           layoutId="navIndicator"
           transition={{ type: 'spring', stiffness: 350, damping: 30 }}
         />
@@ -215,7 +215,7 @@ const MobileNavLink = ({
   return (
     <Link 
       to={to}
-      className="text-navy dark:text-stone font-grotesk font-medium text-2xl"
+      className="text-navy dark:text-cybertext font-grotesk font-medium text-2xl"
       onClick={() => setIsOpen(false)}
     >
       {label}

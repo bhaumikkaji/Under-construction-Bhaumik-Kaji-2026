@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
 
@@ -40,32 +41,32 @@
 
   .dark {
     --background: 0 0% 12%;
-    --foreground: 176 100% 80%;
+    --foreground: 162 45% 53%;
 
     --card: 0 0% 12%;
-    --card-foreground: 176 100% 80%;
+    --card-foreground: 162 45% 53%;
 
     --popover: 0 0% 12%;
-    --popover-foreground: 176 100% 80%;
+    --popover-foreground: 162 45% 53%;
 
-    --primary: 176 100% 80%;
+    --primary: 162 45% 53%;
     --primary-foreground: 0 0% 12%;
 
-    --secondary: 176 42% 15%;
-    --secondary-foreground: 176 100% 80%;
+    --secondary: 162 45% 15%;
+    --secondary-foreground: 162 45% 53%;
 
-    --muted: 176 42% 15%;
-    --muted-foreground: 176 100% 60%;
+    --muted: 162 45% 15%;
+    --muted-foreground: 162 45% 53%;
 
-    --accent: 176 42% 15%;
-    --accent-foreground: 176 100% 80%;
+    --accent: 162 45% 15%;
+    --accent-foreground: 162 45% 53%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 176 100% 80%;
+    --destructive-foreground: 162 45% 53%;
 
-    --border: 176 42% 20%;
-    --input: 176 42% 20%;
-    --ring: 176 100% 80%;
+    --border: 162 45% 20%;
+    --input: 162 45% 20%;
+    --ring: 162 45% 53%;
   }
 
   * {
@@ -77,7 +78,7 @@
   }
 
   body {
-    @apply bg-offwhite dark:bg-darkbg text-charcoal dark:text-cybertext font-sans;
+    @apply bg-background text-foreground font-sans;
     overflow-x: hidden;
   }
 
@@ -141,7 +142,7 @@
 }
 
 .dark .cursor-dot {
-  background-color: #64FFDA;
+  background-color: #52BCA2;
 }
 
 .cursor-outline {
@@ -156,7 +157,7 @@
 }
 
 .dark .cursor-outline {
-  border-color: #64FFDA;
+  border-color: #52BCA2;
 }
 
 /* Animate on scroll */

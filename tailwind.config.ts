@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
@@ -74,11 +75,11 @@ export default {
 				stone: "#EAE7E1",
 				charcoal: "#333333",
 				offwhite: "#F7F7F7",
-				// Cyberpunk dark mode colors
-				darkbg: "#1E1E1E", // Updated to #1E1E1E
-				cybertext: "#64FFDA", // Cyan/teal text from image
+				// Dark mode colors
+				darkbg: "#1E1E1E", 
+				cybertext: "#52BCA2", // Updated to the requested teal color
 				cyberborder: "#2C5C5A", // Darker teal for borders
-				cybersecondary: "#232323", // Slightly lighter dark background
+				cybersecondary: "#1E1E1E", // Same as background for consistency
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
