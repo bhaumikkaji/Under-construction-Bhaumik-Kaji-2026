@@ -156,7 +156,7 @@ export default function Index() {
       </section>
       
       {/* About Section Preview */}
-      <section className="container mx-auto py-24 px-6">
+      <section id="about-section" className="container mx-auto py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
@@ -188,7 +188,7 @@ export default function Index() {
       </section>
       
       {/* Contact CTA */}
-      <section className="bg-navy text-white py-24">
+      <section id="contact-section" className="bg-navy text-white py-24">
         <div className="container mx-auto px-6">
           <AnimatedSection className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-grotesk mb-6">Let's work together</h2>
