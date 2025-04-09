@@ -1,7 +1,6 @@
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { usePasswordProtection } from "@/hooks/usePasswordProtection";
 import { ArrowLeft } from "lucide-react";
@@ -97,7 +96,8 @@ const projectsData = [
 
 // LazyLoad component for projects
 const LazyProjectCard = ({ project, index }: { project: typeof projectsData[0], index: number }) => {
-  const ref = useInView({
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
     once: true,
     amount: 0.1,
   });
@@ -106,7 +106,7 @@ const LazyProjectCard = ({ project, index }: { project: typeof projectsData[0], 
     <motion.div 
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ 
         duration: 0.5,
         delay: index * 0.1 % 0.5, // stagger effect but reset after every 5 items
