@@ -95,7 +95,7 @@ export default function Index() {
               delay: 0.4
             }}>
                 <p className="text-lg md:text-xl text-navy/80 mb-10 max-w-2xl leading-relaxed border-l-4 border-navy/20 pl-6 py-2">
-                  I'm a Senior Product Designer at Microsoft with 9 years of experience in creating human-centered digital experiences. Currently focused on enhancing Microsoft Copilot, I strive to make technology more intuitive and accessible.
+                  Bhaumik Kaji is currently working on designing agentic capabilities with Microsoft Copilot, driving the future of AI-powered tools.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
