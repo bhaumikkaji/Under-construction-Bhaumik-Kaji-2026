@@ -39,17 +39,17 @@
   }
 
   .dark {
-    --background: 193 35% 5%;
+    --background: 0 0% 12%;
     --foreground: 176 100% 80%;
 
-    --card: 193 35% 7%;
+    --card: 0 0% 12%;
     --card-foreground: 176 100% 80%;
 
-    --popover: 193 35% 5%;
+    --popover: 0 0% 12%;
     --popover-foreground: 176 100% 80%;
 
     --primary: 176 100% 80%;
-    --primary-foreground: 193 35% 5%;
+    --primary-foreground: 0 0% 12%;
 
     --secondary: 176 42% 15%;
     --secondary-foreground: 176 100% 80%;
@@ -126,7 +126,7 @@
 }
 
 .dark .password-overlay {
-  background-color: rgba(10, 25, 30, 0.98);
+  background-color: rgba(30, 30, 30, 0.98);
 }
 
 .cursor-dot {
