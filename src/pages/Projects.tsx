@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -119,7 +118,7 @@ const LazyProjectCard = ({ project, index }: { project: typeof projectsData[0], 
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 hover-effect-image"
             />
           </div>
           <div className="mt-4">

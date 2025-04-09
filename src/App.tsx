@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { ImageHoverEffect } from "./components/ImageHoverEffect";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Layout>
+            <ImageHoverEffect />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/projects" element={<Projects />} />

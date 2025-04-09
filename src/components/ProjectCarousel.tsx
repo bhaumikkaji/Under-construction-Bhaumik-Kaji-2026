@@ -92,7 +92,7 @@ export default function ProjectCarousel() {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover-effect-image"
                 />
               </div>
             </div>

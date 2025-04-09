@@ -94,7 +94,7 @@ export default function Index() {
                 <img 
                   src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" 
                   alt="Bhaumik Kaji" 
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center hover-effect-image"
                 />
                 <div className="absolute inset-0 border-4 border-white/10 rounded-2xl pointer-events-none" />
               </div>
@@ -117,7 +117,7 @@ export default function Index() {
                   <img 
                     src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070" 
                     alt="Microsoft Copilot" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 hover-effect-image"
                   />
                 </div>
                 <div className="mt-4">
@@ -133,7 +133,7 @@ export default function Index() {
                   <img 
                     src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=2000" 
                     alt="Design System" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 hover-effect-image"
                   />
                 </div>
                 <div className="mt-4">
@@ -180,7 +180,7 @@ export default function Index() {
                 <img 
                   src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" 
                   alt="Bhaumik Kaji" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover-effect-image"
                 />
               </div>
             </div>
