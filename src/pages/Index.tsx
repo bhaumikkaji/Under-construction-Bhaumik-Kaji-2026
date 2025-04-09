@@ -14,69 +14,91 @@ export default function Index() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <span className="text-navy/70 uppercase tracking-wider text-sm">Senior Product Designer</span>
-          </motion.div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-8 md:mb-12 leading-tight">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="block"
-            >
-              Designing
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="block"
-            >
-              experiences
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="block"
-            >
-              that matter
-            </motion.span>
-          </h1>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">
-              I'm Bhaumik Kaji, a Senior Product Designer at Microsoft, focusing on Copilot, 
-              with 9 years of experience creating intuitive and impactful digital experiences.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/projects" 
-                className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors"
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
+            {/* Text Content */}
+            <div className="md:w-3/5">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8"
               >
-                View Projects
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-              <Link 
-                to="/contact" 
-                className="inline-flex items-center px-6 py-3 border border-navy text-navy rounded-md hover:bg-stone transition-colors"
+                <span className="text-navy/70 uppercase tracking-wider text-sm">Senior Product Designer</span>
+              </motion.div>
+              
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy mb-8 md:mb-12 leading-tight">
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="block"
+                >
+                  Designing
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="block"
+                >
+                  experiences
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="block"
+                >
+                  that matter
+                </motion.span>
+              </h1>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
-                Get in Touch
-              </Link>
+                <p className="text-lg md:text-xl text-navy/80 mb-8 max-w-2xl">
+                  I'm Bhaumik Kaji, a Senior Product Designer at Microsoft, focusing on Copilot, 
+                  with 9 years of experience creating intuitive and impactful digital experiences.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link 
+                    to="/projects" 
+                    className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-md hover:bg-navy/90 transition-colors"
+                  >
+                    View Projects
+                    <ArrowRight size={18} className="ml-2" />
+                  </Link>
+                  <Link 
+                    to="/contact" 
+                    className="inline-flex items-center px-6 py-3 border border-navy text-navy rounded-md hover:bg-stone transition-colors"
+                  >
+                    Get in Touch
+                  </Link>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+            
+            {/* Profile Image */}
+            <motion.div 
+              className="md:w-2/5"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="relative overflow-hidden rounded-2xl aspect-square max-w-sm mx-auto">
+                <img 
+                  src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" 
+                  alt="Bhaumik Kaji" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 border-4 border-white/10 rounded-2xl pointer-events-none" />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
       
