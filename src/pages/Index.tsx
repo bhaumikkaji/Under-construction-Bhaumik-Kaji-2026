@@ -13,11 +13,11 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32 bg-offwhite dark:bg-darkbg">
+      <section className="container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32 bg-offwhite dark:bg-darkbg relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
+          <div className="flex flex-col md:flex-row items-center relative z-10">
             {/* Text Content */}
-            <div className="md:w-3/5">
+            <div className="md:w-3/5 md:pr-12 relative z-20">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export default function Index() {
                 <span className="text-navy/70 dark:text-cybertext uppercase tracking-wider text-sm">Senior Product Designer</span>
               </motion.div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy dark:text-cybertext mb-8 md:mb-12 leading-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-grotesk text-navy dark:text-cybertext mb-8 md:mb-12 leading-tight relative">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -82,18 +82,18 @@ export default function Index() {
               </motion.div>
             </div>
             
-            {/* Profile Image */}
+            {/* Profile Image - Now larger and overlapping */}
             <motion.div 
-              className="md:w-2/5"
+              className="md:w-3/5 md:absolute md:right-0 md:top-0 md:bottom-0 md:z-10"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-square max-w-sm mx-auto">
+              <div className="relative overflow-hidden rounded-2xl md:h-full md:aspect-auto aspect-square max-w-md mx-auto mt-8 md:mt-0">
                 <img 
                   src="/lovable-uploads/5dba1127-e2a3-4e51-ad8c-e39267bcf42f.png" 
                   alt="Bhaumik Kaji" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 border-4 border-white/10 rounded-2xl pointer-events-none" />
               </div>
