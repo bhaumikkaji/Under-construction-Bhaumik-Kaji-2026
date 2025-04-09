@@ -232,3 +232,39 @@
 .dark .border-indigoPurple\/30 {
   border-color: #2C5C5A !important;
 }
+
+/* Ensure all spans in dark mode use cyber teal color */
+.dark span {
+  color: #52BCA2 !important;
+}
+
+/* Ensure all SVG elements use cyber teal in dark mode */
+.dark svg {
+  color: #52BCA2 !important;
+}
+
+/* Ensure all div elements with text properly transition in dark mode */
+.dark div:not(.bg-darkbg):not(.bg-cyberborder) {
+  color: #52BCA2 !important;
+}
+
+/* Ensure button hover states are consistent in dark mode */
+.dark button:focus, 
+.dark button:active {
+  color: #52BCA2 !important;
+  border-color: #52BCA2 !important;
+}
+
+/* Make sure form elements are consistently styled in dark mode */
+.dark input, 
+.dark select, 
+.dark textarea {
+  color: #52BCA2 !important;
+  border-color: #2C5C5A !important;
+  background-color: #1E1E1E !important;
+}
+
+.dark input::placeholder, 
+.dark textarea::placeholder {
+  color: rgba(82, 188, 162, 0.6) !important;
+}

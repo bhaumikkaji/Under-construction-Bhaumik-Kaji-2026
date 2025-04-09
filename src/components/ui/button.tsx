@@ -12,7 +12,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-indigoPurple text-white hover:bg-indigoPurple/90 dark:bg-darkbg dark:text-cybertext dark:border dark:border-cybertext dark:hover:bg-cybertext/10",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 dark:bg-destructive/20 dark:text-cybertext",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 dark:bg-destructive/20 dark:text-cybertext dark:border dark:border-cybertext/50",
         outline:
           "border border-indigoPurple bg-background text-indigoPurple hover:bg-stone/50 hover:text-indigoPurple dark:border-cybertext dark:text-cybertext dark:hover:bg-cybertext/10",
         secondary:
