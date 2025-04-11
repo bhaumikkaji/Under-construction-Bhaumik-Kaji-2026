@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -194,7 +195,7 @@ export default function Project2() {
   ];
 
   return (
-    <div className="min-h-screen bg-offwhite dark:bg-darkbg pb-16">
+    <div className="min-h-screen bg-offwhite dark:bg-darkbg">
       {/* Floating back button */}
       <div className="fixed bottom-8 left-8 z-10">
         <Link 
@@ -206,561 +207,720 @@ export default function Project2() {
         </Link>
       </div>
       
-      {/* Hero section with large image */}
-      <section className="w-full h-[70vh] relative overflow-hidden">
+      {/* Hero section with large image and overlay */}
+      <section className="relative w-full h-[80vh]">
         <motion.div
-          initial={{ scale: 1.05, opacity: 0.8 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9] }}
-          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 z-0"
         >
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+          <div className="relative w-full h-full">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-indigoPurple/80 to-transparent dark:from-darkbg/90 dark:to-transparent" />
+          </div>
         </motion.div>
         
-        <div className="absolute bottom-0 left-0 w-full p-6 md:p-12">
-          <AnimatedSection className="container mx-auto">
+        <div className="absolute inset-0 flex items-center z-10">
+          <AnimatedSection className="container mx-auto px-6 md:px-12">
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="max-w-2xl"
             >
-              <span className="text-sm md:text-base uppercase tracking-wider text-indigoPurple/70 dark:text-cybertext/80 font-medium mb-2 block">
+              <Badge variant="secondary" className="mb-4">
                 {project.category}
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-grotesk text-indigoPurple dark:text-cybertext">
+              </Badge>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-grotesk text-white dark:text-cybertext mb-6">
                 {project.title}
               </h1>
+              <p className="text-lg md:text-xl text-white/90 dark:text-cybertext/90 max-w-xl">
+                {project.description}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button asChild variant="default" size="lg" className="rounded-full">
+                  <a href="#overview">Explore Project</a>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 dark:bg-darkbg/30 dark:border-cybertext/30 dark:text-cybertext dark:hover:bg-cybertext/10">
+                  <a href="#gallery">View Gallery</a>
+                </Button>
+              </div>
             </motion.div>
           </AnimatedSection>
         </div>
       </section>
       
-      {/* Project details */}
-      <section className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <AnimatedSection className="lg:col-span-2">
-            <div className="prose prose-indigoPurple dark:prose-invert max-w-none">
-              <p className="text-lg md:text-xl text-indigoPurple/90 dark:text-cybertext/90 leading-relaxed">
-                {project.description}
-              </p>
-              <p className="text-indigoPurple/80 dark:text-cybertext/80">
-                As the {projectDetails.role}, I was responsible for developing a unified design language
-                that ensured visual consistency while being adaptable enough for Microsoft's diverse product ecosystem.
-              </p>
-              <p className="text-indigoPurple/80 dark:text-cybertext/80">
-                {projectDetails.challenges}
-              </p>
-            </div>
-          </AnimatedSection>
-          
-          <AnimatedSection className="space-y-6">
-            <div className="flex items-center space-x-3">
-              <Clock className="text-indigoPurple/60 dark:text-cybertext/60" size={18} />
-              <div>
-                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Duration</h3>
-                <p className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.duration}</p>
+      {/* Project overview */}
+      <section id="overview" className="py-24 bg-white dark:bg-darkbg/95">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <AnimatedSection className="lg:col-span-2">
+              <div className="border-l-4 border-indigoPurple dark:border-cybertext pl-6 mb-8">
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">Project Overview</h2>
               </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <Users className="text-indigoPurple/60 dark:text-cybertext/60" size={18} />
-              <div>
-                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Team</h3>
-                <p className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.team}</p>
+              <div className="prose prose-lg prose-indigoPurple dark:prose-invert max-w-none">
+                <p className="text-lg text-indigoPurple/90 dark:text-cybertext/90 leading-relaxed">
+                  As the {projectDetails.role}, I was responsible for developing a unified design language
+                  that ensured visual consistency while being adaptable enough for Microsoft's diverse product ecosystem.
+                </p>
+                <p className="text-indigoPurple/80 dark:text-cybertext/80">
+                  {projectDetails.challenges}
+                </p>
               </div>
-            </div>
+            </AnimatedSection>
             
-            <div className="flex items-start space-x-3">
-              <Tag className="text-indigoPurple/60 dark:text-cybertext/60 mt-1" size={18} />
-              <div>
-                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Tools</h3>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {projectDetails.tools.map((tool, index) => (
-                    <span 
-                      key={index} 
-                      className="px-3 py-1 bg-stone dark:bg-cyberborder/30 rounded-full text-sm text-indigoPurple dark:text-cybertext"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+            <AnimatedSection>
+              <div className="bg-stone/30 dark:bg-cyberborder/10 rounded-xl p-8">
+                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6 pb-4 border-b border-stone dark:border-cyberborder/30">Project Details</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-10 h-10 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center">
+                      <Clock className="text-indigoPurple dark:text-cybertext" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Duration</h4>
+                      <p className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.duration}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-10 h-10 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center">
+                      <Users className="text-indigoPurple dark:text-cybertext" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Team</h4>
+                      <p className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.team}</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-center space-x-4 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center">
+                        <Tag className="text-indigoPurple dark:text-cybertext" size={20} />
+                      </div>
+                      <h4 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Tools</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2 ml-14">
+                      {projectDetails.tools.map((tool, index) => (
+                        <Badge key={index} variant="secondary">
+                          {tool}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="flex items-center space-x-4 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center">
+                        <ExternalLink className="text-indigoPurple dark:text-cybertext" size={20} />
+                      </div>
+                      <h4 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Deliverables</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2 ml-14">
+                      {projectDetails.deliverables.map((deliverable, index) => (
+                        <Badge key={index} variant="secondary">
+                          {deliverable}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+      
+      {/* Challenge section */}
+      <section className="py-24 bg-stone/20 dark:bg-darkbg">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center">
+                <Target className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">The Challenge</h2>
+                <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  {projectDetails.challenges}
+                </p>
+              </div>
             </div>
             
-            <div className="flex items-start space-x-3">
-              <ExternalLink className="text-indigoPurple/60 dark:text-cybertext/60 mt-1" size={18} />
-              <div>
-                <h3 className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Deliverables</h3>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {projectDetails.deliverables.map((deliverable, index) => (
-                    <span 
-                      key={index} 
-                      className="px-3 py-1 bg-stone dark:bg-cyberborder/30 rounded-full text-sm text-indigoPurple dark:text-cybertext"
-                    >
-                      {deliverable}
-                    </span>
-                  ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-darkbg/50 shadow-lg dark:shadow-none dark:border dark:border-cyberborder/20 rounded-xl overflow-hidden"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=2070" 
+                    alt="Challenge visualization"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
-              </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold text-indigoPurple dark:text-cybertext mb-3">Product Diversity</h3>
+                  <p className="text-indigoPurple/80 dark:text-cybertext/80">
+                    Microsoft's ecosystem includes dozens of products with different user bases and requirements.
+                    Our design system needed to accommodate this diversity while maintaining brand coherence.
+                  </p>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-darkbg/50 shadow-lg dark:shadow-none dark:border dark:border-cyberborder/20 rounded-xl overflow-hidden"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=2070" 
+                    alt="Challenge visualization"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold text-indigoPurple dark:text-cybertext mb-3">Implementation Consistency</h3>
+                  <p className="text-indigoPurple/80 dark:text-cybertext/80">
+                    With teams distributed globally, ensuring consistent implementation of the design system
+                    required robust documentation and effective communication channels.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </AnimatedSection>
         </div>
       </section>
       
-      {/* Project brief & challenge */}
-      <section className="container mx-auto px-6 py-12 bg-stone/30 dark:bg-cyberborder/10 rounded-2xl my-12">
-        <AnimatedSection>
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <Target className="text-indigoPurple dark:text-cybertext" size={28} />
-              <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Project Brief & Challenge</h2>
+      {/* Design Process */}
+      <section className="py-24 bg-white dark:bg-darkbg/95">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-16">
+              <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center">
+                <PenTool className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">Design Process</h2>
+                <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  A systematic approach to creating a cohesive design language
+                </p>
+              </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/80 dark:bg-darkbg/80 p-6 rounded-xl">
-                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-3">The Brief</h3>
-                <p className="text-indigoPurple/80 dark:text-cybertext/80">
-                  Develop a comprehensive design system that would unify Microsoft's visual language across products
-                  while providing flexibility for product-specific customizations and maintaining a cohesive brand identity.
-                </p>
-              </div>
-              
-              <div className="bg-white/80 dark:bg-darkbg/80 p-6 rounded-xl">
-                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-3">The Challenge</h3>
-                <p className="text-indigoPurple/80 dark:text-cybertext/80">
-                  {projectDetails.challenges}
-                </p>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-      </section>
-      
-      {/* Design System Components */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-8">Key Components</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projectDetails.designSystem.components.map((component, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="overflow-hidden rounded-lg mb-4">
-                  <img 
-                    src={component.image} 
-                    alt={component.name}
-                    className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+            <div className="space-y-24">
+              {projectDetails.process.map((step, index) => (
+                <div 
+                  key={index}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true }}
+                    className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}
+                  >
+                    <div className="relative">
+                      <span className="absolute -top-10 -left-10 text-8xl font-bold text-indigoPurple/10 dark:text-cybertext/10 select-none">
+                        {index + 1}
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">
+                        {step.title}
+                      </h3>
+                      <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mb-6">
+                        {step.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {[1, 2, 3].map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <div className="mt-1 w-5 h-5 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center">
+                              <CheckCircle className="text-indigoPurple dark:text-cybertext" size={12} />
+                            </div>
+                            <span className="text-indigoPurple/80 dark:text-cybertext/80">
+                              {step.title === "Audit" && item === 1 && "Inventory of all interface elements"}
+                              {step.title === "Audit" && item === 2 && "Usability evaluation of existing patterns"}
+                              {step.title === "Audit" && item === 3 && "User feedback analysis"}
+                              
+                              {step.title === "Standardization" && item === 1 && "Core design principles definition"}
+                              {step.title === "Standardization" && item === 2 && "Common pattern identification"}
+                              {step.title === "Standardization" && item === 3 && "Visual language establishment"}
+                              
+                              {step.title === "Component Creation" && item === 1 && "Atomic design methodology"}
+                              {step.title === "Component Creation" && item === 2 && "Interactive prototype development"}
+                              {step.title === "Component Creation" && item === 3 && "Visual and functional specifications"}
+                              
+                              {step.title === "Documentation" && item === 1 && "Comprehensive implementation guides"}
+                              {step.title === "Documentation" && item === 2 && "Accessibility requirements"}
+                              {step.title === "Documentation" && item === 3 && "Interactive component library"}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}
+                  >
+                    <div className="rounded-xl overflow-hidden shadow-xl dark:shadow-none dark:border dark:border-cyberborder/20 aspect-[4/3]">
+                      <img 
+                        src={step.image} 
+                        alt={step.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </motion.div>
                 </div>
-                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-2">
-                  {component.name}
-                </h3>
-                <p className="text-indigoPurple/70 dark:text-cybertext/80">
-                  {component.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </AnimatedSection>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
       
-      {/* Project gallery */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-8">Project Gallery</h2>
-          <Carousel className="w-full">
-            <CarouselContent>
-              {additionalImages.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="border-0 overflow-hidden bg-transparent shadow-none">
-                      <CardContent className="p-0">
-                        <AspectRatio ratio={4/3}>
-                          <img 
-                            src={image} 
-                            alt={`Project visual ${index + 1}`}
-                            className="w-full h-full object-cover rounded-lg hover-effect-image"
-                          />
-                        </AspectRatio>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-end gap-2 mt-4">
-              <CarouselPrevious className="position-override relative right-auto left-auto translate-y-0 dark:bg-darkbg dark:border-cybertext dark:text-cybertext" />
-              <CarouselNext className="position-override relative right-auto left-auto translate-y-0 dark:bg-darkbg dark:border-cybertext dark:text-cybertext" />
+      {/* Project Gallery */}
+      <section id="gallery" className="py-24 bg-stone/20 dark:bg-darkbg">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center">
+                <Layers className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">Design System Components</h2>
+                <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  Key building blocks of our unified design language
+                </p>
+              </div>
             </div>
-          </Carousel>
-        </AnimatedSection>
+            
+            <Carousel className="w-full">
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {projectDetails.designSystem.components.map((component, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="border-0 overflow-hidden shadow-lg dark:shadow-none dark:border dark:border-cyberborder/20 bg-white dark:bg-darkbg/50">
+                        <CardContent className="p-0">
+                          <AspectRatio ratio={16/9}>
+                            <img 
+                              src={component.image} 
+                              alt={component.name}
+                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            />
+                          </AspectRatio>
+                          <div className="p-6">
+                            <h3 className="text-xl font-bold text-indigoPurple dark:text-cybertext mb-2">{component.name}</h3>
+                            <p className="text-indigoPurple/80 dark:text-cybertext/80">{component.description}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-2 mt-8">
+                <CarouselPrevious className="position-override relative right-auto left-auto translate-y-0 mr-2 dark:bg-darkbg dark:border-cybertext dark:text-cybertext" />
+                <CarouselNext className="position-override relative right-auto left-auto translate-y-0 dark:bg-darkbg dark:border-cybertext dark:text-cybertext" />
+              </div>
+            </Carousel>
+          </AnimatedSection>
+        </div>
       </section>
       
       {/* User Research */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Users className="text-indigoPurple dark:text-cybertext" size={28} />
-              <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">User Research</h2>
+      <section className="py-24 bg-white dark:bg-darkbg/95">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center">
+                <Users className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">User Research</h2>
+                <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  Understanding the needs of designers and developers who would use the system
+                </p>
+              </div>
             </div>
             
-            <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-8">
-              We conducted research with designers and developers to ensure the design system would meet their needs
-              and streamline their workflows.
-            </p>
-            
-            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">User Personas</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projectDetails.userPersonas.map((persona, index) => (
-                <div key={index} className="bg-white dark:bg-darkbg border border-stone/50 dark:border-cyberborder/30 rounded-xl overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="bg-white dark:bg-darkbg/50 shadow-lg dark:shadow-none dark:border dark:border-cyberborder/20 rounded-xl overflow-hidden flex flex-col md:flex-row"
+                >
+                  <div className="md:w-1/3 h-auto">
                     <img 
                       src={persona.image} 
                       alt={persona.name} 
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="p-6">
-                    <h4 className="text-lg font-bold text-indigoPurple dark:text-cybertext">{persona.name}</h4>
-                    <p className="text-indigoPurple/60 dark:text-cybertext/60 mb-3">{persona.role}</p>
-                    
-                    <div className="mb-3">
-                      <span className="text-sm font-medium text-indigoPurple dark:text-cybertext">Goals:</span>
-                      <p className="text-indigoPurple/80 dark:text-cybertext/80">{persona.goals}</p>
+                  <div className="p-6 md:w-2/3">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center">
+                        <Users className="text-indigoPurple dark:text-cybertext" size={18} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-indigoPurple dark:text-cybertext">{persona.name}</h3>
+                        <p className="text-indigoPurple/60 dark:text-cybertext/60">{persona.role}</p>
+                      </div>
                     </div>
                     
-                    <div>
-                      <span className="text-sm font-medium text-indigoPurple dark:text-cybertext">Pain Points:</span>
-                      <p className="text-indigoPurple/80 dark:text-cybertext/80">{persona.pain_points}</p>
+                    <div className="space-y-4">
+                      <div className="bg-stone/30 dark:bg-cyberborder/10 rounded-lg p-4">
+                        <h4 className="font-medium text-indigoPurple dark:text-cybertext mb-1">Goals:</h4>
+                        <p className="text-indigoPurple/80 dark:text-cybertext/80">{persona.goals}</p>
+                      </div>
+                      
+                      <div className="bg-stone/30 dark:bg-cyberborder/10 rounded-lg p-4">
+                        <h4 className="font-medium text-indigoPurple dark:text-cybertext mb-1">Pain Points:</h4>
+                        <p className="text-indigoPurple/80 dark:text-cybertext/80">{persona.pain_points}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
       </section>
       
-      {/* Design Process */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-8">Design Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projectDetails.process.map((step, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="overflow-hidden rounded-lg mb-4">
-                  <img 
-                    src={step.image} 
-                    alt={step.title}
-                    className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-2">
-                  {index + 1}. {step.title}
-                </h3>
-                <p className="text-indigoPurple/70 dark:text-cybertext/80">
-                  {step.description}
+      {/* Results & Impact */}
+      <section className="py-24 bg-stone/20 dark:bg-darkbg">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center">
+                <CheckCircle className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">Results & Impact</h2>
+                <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  Measurable improvements in design consistency and efficiency
                 </p>
-              </motion.div>
-            ))}
-          </div>
-        </AnimatedSection>
-      </section>
-      
-      {/* Iterations & Results */}
-      <section className="container mx-auto px-6 py-12 bg-stone/30 dark:bg-cyberborder/10 rounded-2xl my-12">
-        <AnimatedSection>
-          <div className="flex items-center gap-3 mb-8">
-            <PenTool className="text-indigoPurple dark:text-cybertext" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Design System Evolution</h2>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Design System Iterations</h3>
-            <div className="space-y-12">
-              {projectDetails.designIterations.map((iteration, index) => (
-                <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div className={`order-2 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <h4 className="text-lg font-medium text-indigoPurple dark:text-cybertext mb-2">
-                      Version {iteration.version}
-                    </h4>
-                    <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
-                      {iteration.description}
-                    </p>
-                    <div className="bg-white/50 dark:bg-darkbg/50 p-4 rounded-lg">
-                      <span className="text-sm font-medium text-indigoPurple dark:text-cybertext block mb-2">Feedback:</span>
-                      <p className="text-indigoPurple/70 dark:text-cybertext/70 italic">
-                        "{iteration.feedback}"
-                      </p>
-                    </div>
-                  </div>
-                  <div className={`order-1 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="overflow-hidden rounded-lg shadow-md">
-                      <img 
-                        src={iteration.image} 
-                        alt={`Design iteration ${iteration.version}`}
-                        className="w-full aspect-video object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-      </section>
-      
-      {/* Testing & Results */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <div className="flex items-center gap-3 mb-8">
-            <CheckCircle className="text-indigoPurple dark:text-cybertext" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Results & Impact</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <div className="col-span-1 lg:col-span-2">
-              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Key Results</h3>
-              <ul className="space-y-4">
-                {projectDetails.testingResults.keyFindings.map((finding, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="min-w-6 h-6 rounded-full bg-stone dark:bg-cybertext/20 flex items-center justify-center text-indigoPurple dark:text-cybertext font-bold text-sm mt-0.5">
-                      {index + 1}
-                    </div>
-                    <p className="text-indigoPurple/80 dark:text-cybertext/80">{finding}</p>
-                  </li>
-                ))}
-              </ul>
+              </div>
             </div>
             
-            <div className="col-span-1">
-              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Metrics</h3>
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm text-indigoPurple/70 dark:text-cybertext/70">Implementation Rate</span>
-                    <span className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.testingResults.implementationRate}%</span>
-                  </div>
-                  <div className="h-2 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-indigoPurple dark:bg-cybertext rounded-full" 
-                      style={{ width: `${projectDetails.testingResults.implementationRate}%` }}
-                    ></div>
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="col-span-1 lg:col-span-2 bg-white dark:bg-darkbg/50 shadow-lg dark:shadow-none dark:border dark:border-cyberborder/20 rounded-xl p-8">
+                <h3 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Key Findings</h3>
+                <div className="space-y-6">
+                  {projectDetails.testingResults.keyFindings.map((finding, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center shrink-0 mt-1">
+                        <span className="text-white dark:text-cybertext font-bold">{index + 1}</span>
+                      </div>
+                      <div className="bg-stone/30 dark:bg-cyberborder/10 rounded-lg p-5 flex-1">
+                        <p className="text-lg font-medium text-indigoPurple dark:text-cybertext">{finding}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-                
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm text-indigoPurple/70 dark:text-cybertext/70">Designer Satisfaction</span>
-                    <span className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.testingResults.designerSatisfaction}%</span>
+              </div>
+              
+              <div className="col-span-1 bg-white dark:bg-darkbg/50 shadow-lg dark:shadow-none dark:border dark:border-cyberborder/20 rounded-xl p-8">
+                <h3 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Success Metrics</h3>
+                <div className="space-y-8">
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-indigoPurple dark:text-cybertext">Implementation Rate</span>
+                      <span className="text-indigoPurple/80 dark:text-cybertext/80 font-bold">{projectDetails.testingResults.implementationRate}%</span>
+                    </div>
+                    <div className="h-3 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${projectDetails.testingResults.implementationRate}%` }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="h-full bg-indigoPurple dark:bg-cybertext rounded-full"
+                      ></motion.div>
+                    </div>
                   </div>
-                  <div className="h-2 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-indigoPurple dark:bg-cybertext rounded-full" 
-                      style={{ width: `${projectDetails.testingResults.designerSatisfaction}%` }}
-                    ></div>
+                  
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-indigoPurple dark:text-cybertext">Designer Satisfaction</span>
+                      <span className="text-indigoPurple/80 dark:text-cybertext/80 font-bold">{projectDetails.testingResults.designerSatisfaction}%</span>
+                    </div>
+                    <div className="h-3 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${projectDetails.testingResults.designerSatisfaction}%` }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        viewport={{ once: true }}
+                        className="h-full bg-indigoPurple dark:bg-cybertext rounded-full"
+                      ></motion.div>
+                    </div>
                   </div>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm text-indigoPurple/70 dark:text-cybertext/70">Usability Score</span>
-                    <span className="text-indigoPurple dark:text-cybertext font-medium">{projectDetails.testingResults.usabilityScore}%</span>
-                  </div>
-                  <div className="h-2 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-indigoPurple dark:bg-cybertext rounded-full" 
-                      style={{ width: `${projectDetails.testingResults.usabilityScore}%` }}
-                    ></div>
+                  
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-indigoPurple dark:text-cybertext">Usability Score</span>
+                      <span className="text-indigoPurple/80 dark:text-cybertext/80 font-bold">{projectDetails.testingResults.usabilityScore}%</span>
+                    </div>
+                    <div className="h-3 bg-stone/50 dark:bg-cyberborder/30 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${projectDetails.testingResults.usabilityScore}%` }}
+                        transition={{ duration: 1, delay: 0.7 }}
+                        viewport={{ once: true }}
+                        className="h-full bg-indigoPurple dark:bg-cybertext rounded-full"
+                      ></motion.div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
       </section>
       
       {/* My Contribution */}
-      <section className="container mx-auto px-6 py-12 bg-indigoPurple dark:bg-cyberborder/40 rounded-2xl my-12 text-white">
-        <AnimatedSection>
-          <div className="flex items-center gap-3 mb-8">
-            <Puzzle className="text-white" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk">My Contribution</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-xl font-grotesk mb-4">Key Responsibilities</h3>
-              <ul className="space-y-3">
-                {projectDetails.contribution.responsibilities.map((responsibility, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="min-w-6 h-6 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm mt-0.5">
-                      {index + 1}
-                    </div>
-                    <p className="text-white/90">{responsibility}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-grotesk mb-4">Learnings & Growth</h3>
-              <div className="space-y-4">
-                {projectDetails.contribution.learnings.map((learning, index) => (
-                  <div key={index} className="bg-white/10 p-4 rounded-lg">
-                    <p className="text-white/90">{learning}</p>
-                  </div>
-                ))}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-indigoPurple dark:bg-transparent dark:border-y dark:border-cyberborder/30 z-0"></div>
+        <div className="absolute inset-0 dark:bg-gradient-to-r dark:from-cyberborder/20 dark:to-transparent z-0"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="w-16 h-16 rounded-full bg-white/20 dark:bg-cybertext/20 flex items-center justify-center">
+                <Puzzle className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-white dark:text-cybertext">My Contribution</h2>
+                <p className="text-lg text-white/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  Key responsibilities and learnings from this project
+                </p>
               </div>
             </div>
-          </div>
-        </AnimatedSection>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div className="bg-white/10 dark:bg-darkbg/50 backdrop-blur-sm rounded-xl p-8 border border-white/20 dark:border-cyberborder/20">
+                <h3 className="text-2xl font-grotesk text-white dark:text-cybertext mb-6">Key Responsibilities</h3>
+                <div className="space-y-4">
+                  {projectDetails.contribution.responsibilities.map((responsibility, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-white/20 dark:bg-cybertext/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-white dark:text-cybertext font-bold text-sm">{index + 1}</span>
+                      </div>
+                      <p className="text-white/90 dark:text-cybertext/90">{responsibility}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="bg-white/10 dark:bg-darkbg/50 backdrop-blur-sm rounded-xl p-8 border border-white/20 dark:border-cyberborder/20">
+                <h3 className="text-2xl font-grotesk text-white dark:text-cybertext mb-6">Learnings & Growth</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {projectDetails.contribution.learnings.map((learning, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.15 }}
+                      viewport={{ once: true }}
+                      className="bg-white/10 dark:bg-cyberborder/10 rounded-lg p-5"
+                    >
+                      <p className="text-white/90 dark:text-cybertext/90">{learning}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
       
-      {/* Business Outcomes */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <div className="flex items-center gap-3 mb-8">
-            <Award className="text-indigoPurple dark:text-cybertext" size={28} />
-            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext">Outcomes & Impact</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Business Impact</h3>
-              <div className="space-y-4">
-                {projectDetails.outcomes.businessImpact.map((impact, index) => (
-                  <div key={index} className="bg-stone/30 dark:bg-cyberborder/20 p-6 rounded-lg">
-                    <p className="text-xl font-medium text-indigoPurple dark:text-cybertext text-center">{impact}</p>
-                  </div>
-                ))}
+      {/* Outcomes & Recognition */}
+      <section className="py-24 bg-white dark:bg-darkbg/95">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
+              <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center">
+                <Award className="text-white dark:text-cybertext" size={28} />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-grotesk text-indigoPurple dark:text-cybertext">Outcomes & Recognition</h2>
+                <p className="text-lg text-indigoPurple/80 dark:text-cybertext/80 mt-2 max-w-2xl">
+                  Business impact and industry recognition
+                </p>
               </div>
             </div>
             
-            <div>
-              <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Recognition</h3>
-              <div className="space-y-4">
-                {projectDetails.outcomes.awards.map((award, index) => (
-                  <div key={index} className="flex items-center gap-4 bg-stone/30 dark:bg-cyberborder/20 p-6 rounded-lg">
-                    <Award className="text-indigoPurple/60 dark:text-cybertext/60" size={24} />
-                    <p className="font-medium text-indigoPurple dark:text-cybertext">{award}</p>
-                  </div>
-                ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Business Impact</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {projectDetails.outcomes.businessImpact.map((impact, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="bg-stone/30 dark:bg-cyberborder/10 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-[200px]"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center mb-4">
+                        <span className="text-white dark:text-cybertext font-bold">{index + 1}</span>
+                      </div>
+                      <p className="text-lg font-medium text-indigoPurple dark:text-cybertext">{impact}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Recognition</h3>
+                <div className="space-y-6">
+                  {projectDetails.outcomes.awards.map((award, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-4 bg-stone/30 dark:bg-cyberborder/10 rounded-xl p-6"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-indigoPurple dark:bg-cybertext/20 flex items-center justify-center shrink-0">
+                        <Award className="text-white dark:text-cybertext" size={30} />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-medium text-indigoPurple dark:text-cybertext">{award}</h4>
+                        <p className="text-indigoPurple/70 dark:text-cybertext/70 mt-1">
+                          {index === 0 ? "Recognition for excellence in design systems implementation" : "Featured for innovative approach to cross-product consistency"}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
       </section>
       
       {/* Technical details - collapsible section */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <Collapsible 
-            open={isOpen} 
-            onOpenChange={setIsOpen}
-            className="w-full border border-stone/50 dark:border-cyberborder/30 rounded-xl overflow-hidden"
-          >
-            <CollapsibleTrigger asChild>
-              <button className="flex items-center justify-between w-full p-6 text-left bg-stone/20 dark:bg-cyberborder/10 hover:bg-stone/30 dark:hover:bg-cyberborder/20 transition-colors">
-                <div className="flex items-center gap-3">
-                  <Layers className="text-indigoPurple dark:text-cybertext" size={24} />
-                  <h2 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext">Technical Specifications</h2>
+      <section className="py-12 bg-stone/20 dark:bg-darkbg">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <Collapsible 
+              open={isOpen} 
+              onOpenChange={setIsOpen}
+              className="w-full"
+            >
+              <CollapsibleTrigger asChild>
+                <button className="flex items-center justify-between w-full p-6 text-left bg-white dark:bg-darkbg/50 shadow-md dark:shadow-none dark:border dark:border-cyberborder/20 hover:bg-stone/10 dark:hover:bg-cyberborder/10 transition-colors rounded-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center">
+                      <Layers className="text-indigoPurple dark:text-cybertext" size={24} />
+                    </div>
+                    <h2 className="text-2xl font-grotesk text-indigoPurple dark:text-cybertext">Technical Specifications</h2>
+                  </div>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full border border-indigoPurple/20 dark:border-cybertext/20">
+                    <span className={`transform transition-transform ${isOpen ? 'rotate-180' : ''} text-indigoPurple dark:text-cybertext`}>↓</span>
+                  </div>
+                </button>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent className="overflow-hidden transition-all duration-300 ease-in-out">
+                <div className="p-6 bg-white dark:bg-darkbg/50 shadow-md dark:shadow-none dark:border-x dark:border-b dark:border-cyberborder/20 rounded-b-xl">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Design System Structure</h3>
+                      <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
+                        The design system was organized into the following key areas:
+                      </p>
+                      <ul className="space-y-3">
+                        {["Core principles and guidelines", "Visual language (typography, color, iconography)", "Component library with 40+ fully documented components", "Pattern library for common interaction flows"].map((item, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <div className="w-6 h-6 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center shrink-0 mt-0.5">
+                              <CheckCircle className="text-indigoPurple dark:text-cybertext" size={14} />
+                            </div>
+                            <span className="text-indigoPurple/80 dark:text-cybertext/80">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xl font-grotesk text-indigoPurple dark:text-cybertext mb-4">Implementation Approach</h3>
+                      <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
+                        Key technical considerations in our implementation:
+                      </p>
+                      <ul className="space-y-3">
+                        {["Design tokens for easy theming and customization", "Component API documentation with code examples", "Accessibility compliance built into component specifications", "Version control and release management strategy"].map((item, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <div className="w-6 h-6 rounded-full bg-stone dark:bg-cyberborder/30 flex items-center justify-center shrink-0 mt-0.5">
+                              <CheckCircle className="text-indigoPurple dark:text-cybertext" size={14} />
+                            </div>
+                            <span className="text-indigoPurple/80 dark:text-cybertext/80">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center justify-center w-6 h-6 rounded-full border border-indigoPurple/20 dark:border-cybertext/20">
-                  <span className={`transform transition-transform ${isOpen ? 'rotate-180' : ''} text-indigoPurple dark:text-cybertext`}>↓</span>
-                </div>
-              </button>
-            </CollapsibleTrigger>
-            
-            <CollapsibleContent className="p-6 bg-white dark:bg-darkbg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-lg font-grotesk text-indigoPurple dark:text-cybertext mb-4">Design System Structure</h3>
-                  <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
-                    The design system was organized into the following key areas:
-                  </p>
-                  <ul className="space-y-2 text-indigoPurple/80 dark:text-cybertext/80">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Core principles and guidelines
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Visual language (typography, color, iconography)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Component library with 40+ fully documented components
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Pattern library for common interaction flows
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg font-grotesk text-indigoPurple dark:text-cybertext mb-4">Implementation Approach</h3>
-                  <p className="text-indigoPurple/80 dark:text-cybertext/80 mb-4">
-                    Key technical considerations in our implementation:
-                  </p>
-                  <ul className="space-y-2 text-indigoPurple/80 dark:text-cybertext/80">
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Design tokens for easy theming and customization
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Component API documentation with code examples
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Accessibility compliance built into component specifications
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigoPurple dark:bg-cybertext"></span>
-                      Version control and release management strategy
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
-        </AnimatedSection>
+              </CollapsibleContent>
+            </Collapsible>
+          </AnimatedSection>
+        </div>
       </section>
       
       {/* Next project */}
-      <section className="container mx-auto px-6 py-12">
-        <AnimatedSection>
-          <div className="text-center">
-            <span className="text-sm text-indigoPurple/60 dark:text-cybertext/60 uppercase tracking-wider">Continue exploring</span>
-            <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Next Project</h2>
-            <Button asChild size="lg" className="rounded-full px-8">
-              <Link to={`/project/3`}>
-                View Next Project
-              </Link>
-            </Button>
-          </div>
-        </AnimatedSection>
+      <section className="py-16 bg-white dark:bg-darkbg/95">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="text-center">
+              <Badge variant="secondary" className="mb-4">Continue exploring</Badge>
+              <h2 className="text-2xl md:text-3xl font-grotesk text-indigoPurple dark:text-cybertext mb-6">Ready to see more work?</h2>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Button asChild size="lg" className="rounded-full px-8">
+                  <Link to={`/project/3`}>
+                    Next Project
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+                  <Link to="/projects">
+                    All Projects
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
     </div>
   );
