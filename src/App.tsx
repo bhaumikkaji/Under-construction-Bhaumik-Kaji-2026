@@ -15,6 +15,7 @@ import { ImageHoverEffect } from "./components/ImageHoverEffect";
 // Individual project pages
 import Project1 from "./pages/projects/Project1";
 import Project2 from "./pages/projects/Project2";
+import ComponentShowcase from "./pages/ComponentShowcase";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,9 @@ const App = () => (
               {/* Individual project routes */}
               <Route path="/project/1" element={<Project1 />} />
               <Route path="/project/2" element={<Project2 />} />
+              
+              {/* Component library showcase */}
+              <Route path="/components" element={<ComponentShowcase />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
