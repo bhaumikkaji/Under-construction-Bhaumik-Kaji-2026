@@ -38,7 +38,7 @@ const App = () => (
               <Route path="/project/2" element={<Project2 />} />
               
               {/* Component library showcase */}
-              <Route path="/components" element={<ComponentShowcase />} />
+              <Route path="/showcase" element={<ComponentShowcase />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
